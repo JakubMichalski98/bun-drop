@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Burnest';
+  src: url('fonts/Burnest.otf');
+}
+
+
+* {
+  background-color: #EEECE9;
+}
+
+.active {
+  color: #FFA07A;
+}

@@ -1,0 +1,56 @@
+img {
+   height: 116px;
+   width: 116px;
+   margin-left: 2rem;
+   z-index: 100;
+}
+
+ li {
+   background-color: transparent;
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    height: 100%;
+    cursor: pointer;
+ }
+
+ a {
+    text-decoration: none;
+    color: #414241;
+    font-family: 'Burnest', sans-serif;
+ }
+
+.navbar {
+   height: 120px;
+   display: flex;
+   justify-content: space-between;
+   padding: 0.5rem;
+   z-index: 10;
+   position: sticky;
+}
+
+.navmenu {
+   background-color: transparent;
+   margin-top: 2.5rem;
+   display: flex;
+   align-items: center;
+   list-style: none;
+   margin-left: -200px;
+ }
+
+ .cart {
+   padding-bottom: 1rem;
+   display: flex;
+   align-items: center;
+   margin-right: 40px;
+ }
+
+ .carticon {
+   height: 40px;
+   width: 40px;
+ }
+
+ @media screen and (max-width: 768px) {
+   .navmenu {
+      display: none;
+   }
+ }
