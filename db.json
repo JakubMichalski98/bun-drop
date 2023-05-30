@@ -1,19 +1,61 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "The Classic",
+      "price": 3.99,
+      "category": "burger",
+      "image": "src\\images\\burger-1.png"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "The Baconator",
+      "price": 5.99,
+      "category": "burger",
+      "image": "src\\images\\burger-2.png"
+    },
+    {
+      "id": 3,
+      "name": "The Garden Delight",
+      "price": 4.49,
+      "category": "burger",
+      "image": "src\\images\\burger-4.png"
+      
+    },
+    {
+      "id": 4,
+      "name": "The Double Trouble",
+      "price": 6.99,
+      "category": "burger",
+      "image": "src\\images\\burger-5.png"
+    },
+    {
+      "id": 5,
+      "name": "The Mushroom Melt",
+      "price": 4.99,
+      "category": "burger",
+      "image": "src\\images\\burger-6.png"
+    },
+    {
+      "id": 6,
+      "name": "The Cluckin' Good",
+      "price": 5.49,
+      "category": "burger",
+      "image": "src\\images\\burger-7.png"
+    },
+    {
+      "id": 7,
+      "name": "The Firecracker",
+      "price": 4.99,
+      "category": "burger",
+      "image": "src\\images\\burger-3.png"
+    },
+    {
+      "id": 8,
+      "name": "Joe's favorite",
+      "price": 4.99,
+      "category": "burger",
+      "image": "src\\images\\burger-8.png"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
