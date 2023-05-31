@@ -20,6 +20,7 @@ img {
  }
 
 .navbar {
+   top: 0;
    height: 120px;
    display: flex;
    justify-content: space-between;
@@ -60,7 +61,7 @@ img {
    margin-right: 1rem;
    display: flex;
    align-items: center;
-   margin-top: -4px;
+   margin-top: -8px;
    color: #414241;
  }
 
@@ -110,6 +111,10 @@ img {
    .navmobile {
       transform: none;
    }
+
+   .cart {
+      margin-top: -2px;
+    }
 
    li {
       height: 3rem;

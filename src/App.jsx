@@ -10,7 +10,7 @@ import Cart from './components/pages/Cart';
 function App() {
 
   return (
-    <>
+    <div className='wrapper'>
     <Router>
       <Navbar/>
       <Routes>
@@ -45,7 +45,7 @@ function App() {
 
     </Router>
     
-    </>
+    </div>
   )
 }
 
