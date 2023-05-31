@@ -28,6 +28,13 @@ function Navbar() {
         }
     }
 
+    function handleCartClick() {
+        if (mobileMenuOpen)
+        {
+            toggleMobileMenu();
+        }
+    }
+
     return ( 
         <nav className={Styles.navbar}>
             <Link to='/'>
@@ -56,7 +63,7 @@ function Navbar() {
                         {!mobileMenuOpen ? (<RxHamburgerMenu className={Styles.hamburgericon}/>) : (<RxCross2 className={Styles.hamburgericon}/>)}
                     </div>
                     <div className={Styles.cart}>
-                        <NavLink onClick={toggleMobileMenu} to='/cart'>
+                        <NavLink onClick={handleCartClick} to='/cart'>
                             <AiOutlineShoppingCart className={Styles.carticon}/>
                         </NavLink>
                     </div>

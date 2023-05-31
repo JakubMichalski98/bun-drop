@@ -16,12 +16,7 @@ function Home() {
 
     return ( 
         <>
-        {products.map((p) => (
-            <div>
-                <h1>{p.name}</h1>
-                <img src={p.image}/>
-            </div>
-        ))}
+
 
         </>
      );
