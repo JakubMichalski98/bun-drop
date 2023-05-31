@@ -1,17 +1,31 @@
 import React from 'react';
 import Styles from './Navbar.module.css'
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {RxHamburgerMenu, RxCross2} from 'react-icons/rx'
 
 function Navbar() {
 
-    const [isMenuClicked, setIsMenuClicked] = useState(true);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [mobileNavClass, setMobileNavClass] = useState('');
 
-    function toggleMenuIcon()
+    useEffect(() => {
+        document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
+    },[mobileMenuOpen])
+
+    function toggleMobileMenu()
     {
-        setIsMenuClicked(!isMenuClicked);
+        setMobileMenuOpen(!mobileMenuOpen);
+        
+        if (!mobileMenuOpen)
+        {
+            setMobileNavClass(`${Styles.navmobile}`);
+        }
+        else
+        {
+            setMobileNavClass('');
+        }
     }
 
     return ( 
@@ -19,48 +33,36 @@ function Navbar() {
             <Link to='/'>
                 <img src='/src\images\logo-color.png'/>
             </Link>
-                <ul className={Styles.mobileicons}>
+                <ul className={`${Styles.navlinks} ${mobileNavClass}`}>
                     <li>
-                        <div onClick={toggleMenuIcon}>
-                            {!isMenuClicked ? (
-                                <RxHamburgerMenu className={Styles.hamburgermenu}/>
-                            ) : 
-                            (
-                                <RxCross2 className={Styles.hamburgermenu}/> 
-                            )}
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <NavLink to='/cart'>
-                                <AiOutlineShoppingCart className={Styles.carticon}/>
-                            </NavLink>
-                        </div>
-                    </li>
-                </ul>
-                <ul className={isMenuClicked? Styles.mobilemenu : Styles.navmenu}>
-                    <li>
-                        <NavLink to='/'>
+                        <NavLink onClick={toggleMobileMenu} to='/'>
                             HOME
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/menu'>
+                        <NavLink onClick={toggleMobileMenu} to='/menu'>
                             MENU
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/signin'>
+                        <NavLink onClick={toggleMobileMenu} to='/signin'>
                             SIGN&nbsp;IN
                         </NavLink>
                     </li>
                 </ul>
 
-                <div className={Styles.cart}>
-                            <NavLink className={Styles.cartcontainer} to='/cart'>
-                                <AiOutlineShoppingCart className={Styles.carticon}/>
-                            </NavLink>
-                        </div>
+                <div className={Styles.iconcontainer}>
+                    <div onClick={toggleMobileMenu} className={Styles.hamburger}>
+                        {!mobileMenuOpen ? (<RxHamburgerMenu className={Styles.hamburgericon}/>) : (<RxCross2 className={Styles.hamburgericon}/>)}
+                    </div>
+                    <div className={Styles.cart}>
+                        <NavLink onClick={toggleMobileMenu} to='/cart'>
+                            <AiOutlineShoppingCart className={Styles.carticon}/>
+                        </NavLink>
+                    </div>
+                </div>
+
+               
         </nav>
      );
 }

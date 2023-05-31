@@ -28,7 +28,7 @@ img {
    position: sticky;
 }
 
-.navmenu {
+.navlinks {
    margin-right: 2rem;
    gap: 4rem;
    margin-top: 2.5rem;
@@ -37,69 +37,88 @@ img {
    list-style: none;
  }
 
- .mobileicons {
-   margin-top: 2.5rem;
+ .iconcontainer {
+   display: flex;
+   gap: 1rem;
+ }
+
+ .hamburger {
    display: none;
-   list-style: none;
-   gap: 2rem;
+   align-items: center;
+   cursor: pointer;
  }
 
- .notvisible {
-   display:
- }
-
- .hamburgermenu {
+ .hamburgericon {
    height: 32px;
    width: 32px;
+   margin-top: -4px;
    color: #414241;
  }
 
  .cart {
+   margin-right: 1rem;
    display: flex;
    align-items: center;
+   margin-top: -4px;
+   color: #414241;
  }
 
  .carticon {
    height: 40px;
    width: 40px;
-   margin-top: -4px;
  }
 
  @media screen and (max-width: 768px) {
 
    img {
-      height: 100px;
-      width: 100px;
+      margin-left: 0; 
+      height: 80px;
+      width: 80px;
+   }
+
+   ul {
+      margin: 0;
+      padding: 0;
+   }
+
+   li {
+      margin: 0;
+      padding: 0;
    }
 
    .navbar {
       height: 100px;
    }
 
-   .navmenu, .cart {
-      display: none;
-   }
-
-   .mobileicons {
-      display: flex;
-      z-index: 100;
-   }
-
-   .mobilemenu {
-      list-style: none;
-      position: absolute;
-      top: 130%;
+   .navlinks {
+      position: fixed;
+      top: 10%;
+      left: 0;
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 6rem;
+      z-index: 9999;
+      transform: translateX(120vw)
    }
 
-   ul li {
-      padding: 32px;
-      width: 100%;
+   .navmobile {
+      transform: none;
    }
-   
+
+   li {
+      height: 3rem;
+   }
+
+   .hamburger {
+      display: flex;
+   }   
+
+   body {
+      overflow: hidden;
+   }
+
  }

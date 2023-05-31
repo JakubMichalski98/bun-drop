@@ -12,7 +12,7 @@
       "name": "The Baconator",
       "price": 5.99,
       "category": "burger",
-      "image": "src\\images\\burger-2.png"
+      "image": "src\\images\\burger-3.png"
     },
     {
       "id": 3,
@@ -48,7 +48,7 @@
       "name": "The Firecracker",
       "price": 4.99,
       "category": "burger",
-      "image": "src\\images\\burger-3.png"
+      "image": "src\\images\\burger-2.png"
     },
     {
       "id": 8,
