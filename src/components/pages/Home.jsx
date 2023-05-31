@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import Hero from '../hero/Hero';
 
 function Home() {
 
@@ -16,8 +17,7 @@ function Home() {
 
     return ( 
         <>
-
-
+            <Hero/>
         </>
      );
 }
