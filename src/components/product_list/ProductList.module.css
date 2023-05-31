@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.container h2 {
+    margin-top: 6rem;
+    text-align: center;
+    color: #414241;
+}
+
+.productlist {
+    gap: 12rem;
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

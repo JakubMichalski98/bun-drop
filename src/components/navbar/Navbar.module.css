@@ -1,6 +1,10 @@
+body {
+   overflow: auto;
+}
+
 img {
-   height: 116px;
-   width: 116px;
+   height: 100px;
+   width: 100px;
    margin-left: 2rem;
    z-index: 100;
    user-select: none;
@@ -21,17 +25,18 @@ img {
 
 .navbar {
    top: 0;
-   height: 120px;
+   height: 100px;
    display: flex;
    justify-content: space-between;
    padding: 0.5rem;
    z-index: 10;
    position: sticky;
    z-index: 9999;
+   box-shadow: 1px 1px 20px grey;
 }
 
 .navlinks {
-   margin-right: 2rem;
+   margin-right: 5rem;
    gap: 8rem;
    margin-top: 2.5rem;
    display: flex;
