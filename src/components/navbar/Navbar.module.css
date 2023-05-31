@@ -93,8 +93,8 @@ img {
    }
 
    .navlinks {
+      margin-top: 16%;
       position: fixed;
-      top: 8%;
       left: 0;
       height: 100%;
       width: 100%;
@@ -110,6 +110,7 @@ img {
 
    .navmobile {
       transform: none;
+
    }
 
    .cart {
