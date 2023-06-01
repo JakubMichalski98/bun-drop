@@ -29,3 +29,30 @@
 .textcontainer {
     margin-left: 40px;
 }
+
+@media screen and (max-width: 1400px) {
+    .productcard img {
+        height: 168px;
+        width: 168px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .productcard img {
+        height: 240px;
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+
+    .textcontainer {
+        margin-left: 0;
+    }
+    
+    .productcard {
+        align-items: center;
+        text-align: center;
+    }
+}
