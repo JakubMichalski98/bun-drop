@@ -1,0 +1,32 @@
+.modalbackground {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(200, 200, 200, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalcontainer {
+    border: 1px dotted red;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 34rem;
+    width: 28rem;
+    background-color: white;
+}
+
+.modalcontainer h1 {
+    background-color: white;
+}
+
+.modalcontainer img {
+    margin: 0;
+    height: 240px;
+    width: 240px;
+}
+

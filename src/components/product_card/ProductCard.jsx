@@ -1,15 +1,20 @@
 import React from 'react';
 import Styles from './ProductCard.module.css'
 
-function ProductCard({productName, price, image}) {
+function ProductCard({product, onProductClick}) {
+
+    function handleClick() {
+        onProductClick(product);
+    }
+
     return ( 
-        <div className={Styles.productcard}>
+        <div onClick={handleClick} className={Styles.productcard}>
             <div className={Styles.imagecontainer}>
-                <img src={image}/>
+                <img src={product.image}/>
             </div>
             <div className={Styles.textcontainer}>
-                <h3>{productName}</h3>
-                <h4>{price}€</h4>
+                <h3>{product.name}</h3>
+                <h4>{product.price}€</h4>
 
             </div>
         </div>

@@ -1,12 +1,15 @@
 import React from 'react';
 import ProductList from '../product_list/ProductList';
 import Searchbar from '../searchbar/Searchbar';
+import ProductModal from '../ProductModal/ProductModal';
 import { useEffect, useState } from 'react';
 
 function Menu() {
 
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [openModal, setOpenModal] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState({});
 
     useEffect(() => {
         async function fetchProducts() {
@@ -17,21 +20,34 @@ function Menu() {
         fetchProducts();
       }, [])
 
-      function handleInputChange(event) {
-        setSearchTerm(event.target.value);
+      useEffect(() => {
+        document.body.style.overflow = openModal ? 'hidden' : 'auto';
+    },[openModal])
+
+      function handleInputChange(e) {
+        setSearchTerm(e.target.value);
+      }
+
+      function handleClick(product) 
+      {
+        setSelectedProduct(product);
+        setOpenModal(true);
+        console.log(`${product.name} clicked!`);
       }
 
     return ( 
         <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center'}}>
-        <h1 style={{textAlign: 'center', fontSize: '60px', fontWeight: 'normal', color: '#414241', marginTop: '80px'}}>Our Products</h1>
+        <h1 style={{textAlign: 'center', fontSize: '60px', fontWeight: 'normal', color: '#414241', marginTop: '40px'}}>Our Products</h1>
         <div>
           <Searchbar inputValue = {searchTerm} onInputChange={handleInputChange}/>
         </div> 
         <div style={{marginTop: '20px'}}>
-          <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm}/> 
-          <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm}/>       
-          <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm}/>   
+          <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
+          <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
+          <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   
         </div>
+
+        {openModal && <ProductModal product = {selectedProduct}/>}
   
         </div>
      );

@@ -39,6 +39,10 @@ p {
 
 @media screen and (max-width: 1400px) {
 
+    .container {
+        margin-top: -2rem;
+    }
+
     h1 {
         font-size: 54px;
     }
@@ -62,6 +66,7 @@ p {
 
 @media screen and (max-width: 992px)
 {
+    
     .container h1 {
         font-size: 36px;
     }
