@@ -25,8 +25,8 @@ p {
 
 .heroimage {
     border-radius: 50%;
-    height: 720px;
-    width: 720px;
+    height: 680px;
+    width: 680px;
 }
 
 .mobilebuttoncontainer {
@@ -58,7 +58,7 @@ p {
 
     .text {
         margin-top: 6rem;
-        width: 30%;
+        width: 40%;
         margin-bottom: 10rem;
     }
 
