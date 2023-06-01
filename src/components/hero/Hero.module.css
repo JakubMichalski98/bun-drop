@@ -10,6 +10,7 @@ p {
 }
 
 .container {
+    margin-top: 4rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -82,7 +83,7 @@ p {
 
 @media screen and (max-width: 768px) {
     .container {
-        margin-top: -8rem;
+        margin-top: -4rem;
         gap: 6rem;
         display: flex;
         flex-direction: column;
@@ -111,7 +112,7 @@ p {
 
     .mobilebuttoncontainer {
         display: flex;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
     }
 
     .desktopbuttoncontainer {
