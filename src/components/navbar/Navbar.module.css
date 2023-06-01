@@ -10,11 +10,12 @@ body {
    user-select: none;
 }
 
- li {
+ .navbar li {
     font-size: 1.5rem;
     height: 100%;
     cursor: pointer;
     user-select: none;
+    margin-bottom: 1rem;
  }
 
  a {
@@ -28,6 +29,7 @@ body {
    height: 100px;
    display: flex;
    justify-content: space-between;
+   align-items: center;
    padding: 0.5rem;
    z-index: 10;
    position: sticky;
@@ -67,7 +69,6 @@ body {
    margin-right: 3rem;
    display: flex;
    align-items: center;
-   margin-top: -8px;
    color: #414241;
  }
 
@@ -76,9 +77,31 @@ body {
    width: 40px;
  }
 
+ @media screen and (max-width: 1400px)
+ {
+   .navbar {
+      height: 80px;
+   }
+
+   .navbar img {
+      margin-left: 0; 
+      height: 80px;
+      width: 80px;
+   }
+
+   .navbar li {
+      font-size: 1.2rem;
+   }
+
+   .carticon {
+      height: 32px;
+      width: 32px;
+    }
+ }
+
  @media screen and (max-width: 768px) {
 
-   img {
+   .navbar img {
       margin-left: 0; 
       height: 80px;
       width: 80px;
@@ -95,10 +118,11 @@ body {
    }
 
    .navbar {
-      height: 100px;
+      height: 80px;
    }
 
    .navlinks {
+      background-color: #EEECE9;
       margin-top: 6rem;
       position: fixed;
       left: 0;
