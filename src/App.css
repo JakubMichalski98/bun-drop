@@ -4,8 +4,13 @@
 }
 
 * {
-  background-color: #EEECE9;
+
   font-family: 'Burnest';
+}
+
+
+body {
+  background-color: #EEECE9;
 }
 
 html, body {

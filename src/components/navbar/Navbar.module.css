@@ -2,7 +2,7 @@ body {
    overflow: auto;
 }
 
-img {
+.navbar img {
    height: 100px;
    width: 100px;
    margin-left: 2rem;
@@ -32,6 +32,7 @@ img {
    z-index: 10;
    position: sticky;
    z-index: 9999;
+   background-color: #EEECE9;
    box-shadow: 1px 1px 20px grey;
 }
 

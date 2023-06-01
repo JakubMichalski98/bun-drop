@@ -1,0 +1,16 @@
+.quantityselector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantityselector button {
+    cursor: pointer;
+    margin: 2rem;
+    font-size: 24px ;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+

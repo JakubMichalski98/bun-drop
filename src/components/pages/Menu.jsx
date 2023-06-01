@@ -20,9 +20,7 @@ function Menu() {
         fetchProducts();
       }, [])
 
-      useEffect(() => {
-        document.body.style.overflow = openModal ? 'hidden' : 'auto';
-    },[openModal])
+
 
       function handleInputChange(e) {
         setSearchTerm(e.target.value);
@@ -33,6 +31,10 @@ function Menu() {
         setSelectedProduct(product);
         setOpenModal(true);
         console.log(`${product.name} clicked!`);
+      }
+
+      function handleCloseClick() {
+        setOpenModal(false);
       }
 
     return ( 
@@ -47,7 +49,7 @@ function Menu() {
           <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   
         </div>
 
-        {openModal && <ProductModal product = {selectedProduct}/>}
+        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick}/>}
   
         </div>
      );
