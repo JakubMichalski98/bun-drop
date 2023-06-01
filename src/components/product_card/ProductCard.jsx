@@ -9,7 +9,7 @@ function ProductCard({productName, price, image}) {
             </div>
             <div className={Styles.textcontainer}>
                 <h3>{productName}</h3>
-                <h4>{price}</h4>
+                <h4>{price}€</h4>
 
             </div>
         </div>

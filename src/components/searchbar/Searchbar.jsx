@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from './Searchbar.module.css'
 import { AiOutlineSearch } from 'react-icons/ai';
 
-function Searchbar() {
+function Searchbar({inputValue, onInputChange}) {
     return ( 
         <div className={Styles.searchcontainer}>
             <div className={Styles.inputwrapper}>
@@ -10,7 +10,7 @@ function Searchbar() {
                     <AiOutlineSearch className={Styles.searchicon}/>
                 </div>
                
-                <input className={Styles.searchinput} type='text' placeholder='Search for product'/>
+                <input className={Styles.searchinput} type='text' placeholder='Search for product' value={inputValue} onChange={onInputChange}/>
             </div>            
         </div>
      );
