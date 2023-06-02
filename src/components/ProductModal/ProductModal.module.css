@@ -49,3 +49,19 @@
     margin-top: -2rem;
 }
 
+@media screen and (max-width: 768px) {
+    .modalcontainer {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .closeicon {
+        display: flex;
+        align-self: flex-end;
+        margin-top: -6rem;
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+    }
+
+}
+

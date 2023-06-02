@@ -3,7 +3,7 @@ import Styles from './ProductModal.module.css'
 import QuantitySelector from '../quantity_selector/QuantitySelector';
 import Button from '../button/Button'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function ProductModal({product, handleXClick}) {
 
