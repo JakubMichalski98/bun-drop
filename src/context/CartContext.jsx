@@ -12,12 +12,12 @@ export function CartProvider({ children }) {
         localStorage.setItem('cart', JSON.stringify(cartItems));
     }, [cartItems])
 
-  function addToCart(item, quantity) {
+  function addToCart(product, quantity) {
 
-    const itemIndex = cartItems.findIndex(i => i.item.id === item.id);
+    const itemIndex = cartItems.findIndex(i => i.product.id === product.id);
 
     if (itemIndex === -1) {
-        setCartItems([...cartItems, {item, quantity}]);
+        setCartItems([...cartItems, {product, quantity}]);
     }
     else {
         const updatedCartItems = [...cartItems];

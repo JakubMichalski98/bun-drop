@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
+import CartItem from '../cart_item/CartItem';
 
 function Cart() {
 
@@ -7,15 +8,12 @@ function Cart() {
 
 
     return ( 
-        <>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '4rem', paddingBottom:'2rem'}}>
+            <h1 style={{textAlign: 'center'}}>YOUR ITEMS</h1>
         {cartItems.map((i) => (
-            <div key = {i.item.id}>
-                <h1>{i.item.name}</h1>
-                <p>x{i.quantity}</p>
-            </div>
-
+            <CartItem product={i.product}/>
         ))}
-        </>
+        </div>
      );
 }
 

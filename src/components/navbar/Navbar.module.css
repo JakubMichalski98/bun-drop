@@ -118,6 +118,7 @@ body {
 
    .navbar {
       height: 60px;
+      z-index: 9999;
    }
 
    .navlinks {
@@ -132,7 +133,6 @@ body {
       align-items: center;
       justify-content: center;
       gap: 6rem;
-      z-index: 9999;
       transform: translateX(120vw);
    }
 
