@@ -36,9 +36,9 @@ function Menu() {
         console.log(`${product.name} clicked!`);
       }
       
-      function handleAddClick(product) {
+      function handleAddClick(product, quantity) {
         setOpenModal(false);
-        addToCart(product)
+        addToCart(product, quantity)
       }
 
       function handleCloseClick() {

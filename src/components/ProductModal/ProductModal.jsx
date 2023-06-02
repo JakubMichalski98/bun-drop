@@ -2,7 +2,6 @@ import React from 'react';
 import Styles from './ProductModal.module.css'
 import QuantitySelector from '../quantity_selector/QuantitySelector';
 import Button from '../button/Button'
-import { useCart } from '../../context/CartContext';
 import { useState } from 'react';
 
 function ProductModal({product, handleXClick, handleAddClick}) {

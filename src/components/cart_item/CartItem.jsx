@@ -12,6 +12,7 @@ function CartItem(item) {
             </div>
             <div className={Styles.rightside}>
                 <div className={Styles.quantityselector}>
+                    <h1>{item.quantity}</h1>
                     <QuantitySelector/>
                 </div>
                 
