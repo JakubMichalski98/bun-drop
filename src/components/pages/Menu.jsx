@@ -3,13 +3,16 @@ import ProductList from '../product_list/ProductList';
 import Searchbar from '../searchbar/Searchbar';
 import ProductModal from '../ProductModal/ProductModal';
 import { useEffect, useState } from 'react';
+import { useCart } from '../../context/CartContext';
 
-function Menu({onAddClick}) {
+function Menu() {
 
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [openModal, setOpenModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState({});
+
+    const {addToCart} = useCart();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -32,6 +35,11 @@ function Menu({onAddClick}) {
         setOpenModal(true);
         console.log(`${product.name} clicked!`);
       }
+      
+      function handleAddClick(product) {
+        setOpenModal(false);
+        addToCart(product)
+      }
 
       function handleCloseClick() {
         setOpenModal(false);
@@ -49,7 +57,7 @@ function Menu({onAddClick}) {
           <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   
         </div>
 
-        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={(product, quantity) => onAddClick(product, quantity)}/>}
+        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={handleAddClick}/>}
   
         </div>
      );
