@@ -11,17 +11,18 @@ import { CartContext } from './context/CartContext';
 
 function App() {
 
-  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   function addItemToCart(product)
   {
-    console.log(product);
+    cartItems.push(product);
+    console.log(cartItems);
   }
 
   return (
     <div className='wrapper'>
 
-      <CartContext.Provider value={[products, setProducts]}>
+      <CartContext.Provider value={[cartItems, setCartItems]}>
         <Router>
           <Navbar/>
           <Routes>
