@@ -29,7 +29,7 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                     <div className={Styles.pricecontainer}>
                         <h2>{(product.price * quantity).toFixed(2)}€</h2>
                     </div>
-                    <div onClick={() => addToCart(product)}>
+                    <div onClick={() => addToCart(product, quantity)}>
                         <Button text={'Add to Cart'}/>
                     </div>
                 </div>
