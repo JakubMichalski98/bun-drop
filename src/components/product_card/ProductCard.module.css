@@ -30,7 +30,7 @@
     margin-left: 6px;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
     .productcard img {
         height: 168px;
         width: 168px;
