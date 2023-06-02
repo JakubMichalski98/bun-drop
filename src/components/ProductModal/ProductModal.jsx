@@ -5,7 +5,7 @@ import Button from '../button/Button'
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-function ProductModal({product, handleXClick}) {
+function ProductModal({product, handleXClick, handleAddClick}) {
 
     const [quantity, setQuantity] = useState(1);
 
@@ -27,7 +27,9 @@ function ProductModal({product, handleXClick}) {
                     <div className={Styles.pricecontainer}>
                         <h2>{(product.price * quantity).toFixed(2)}€</h2>
                     </div>
-                    <Button text={'Add to Cart'}/>
+                    <div onClick={() => handleAddClick(product)}>
+                        <Button text={'Add to Cart'}/>
+                    </div>
                 </div>
         </div>
      );

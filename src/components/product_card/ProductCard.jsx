@@ -3,12 +3,9 @@ import Styles from './ProductCard.module.css'
 
 function ProductCard({product, onProductClick}) {
 
-    function handleClick() {
-        onProductClick(product);
-    }
 
     return ( 
-        <div onClick={handleClick} className={Styles.productcard}>
+        <div onClick={() => onProductClick(product)} className={Styles.productcard}>
             <div className={Styles.imagecontainer}>
                 <img src={product.image}/>
             </div>

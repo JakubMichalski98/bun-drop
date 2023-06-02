@@ -4,7 +4,7 @@ import Searchbar from '../searchbar/Searchbar';
 import ProductModal from '../ProductModal/ProductModal';
 import { useEffect, useState } from 'react';
 
-function Menu() {
+function Menu({onAddClick}) {
 
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -49,7 +49,7 @@ function Menu() {
           <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   
         </div>
 
-        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick}/>}
+        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={(product) => onAddClick(product)}/>}
   
         </div>
      );

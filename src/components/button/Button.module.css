@@ -1,6 +1,5 @@
 .button {
     font-size: 25px;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,4 +10,5 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
+    user-select: none;
 }
