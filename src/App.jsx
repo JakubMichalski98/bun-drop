@@ -7,22 +7,16 @@ import Menu from './components/pages/Menu';
 import SignIn from './components/pages/SignIn';
 import Register from './components/pages/Register';
 import Cart from './components/pages/Cart';
-import { CartContext } from './context/CartContext';
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([]);
-
-  function addItemToCart(product)
-  {
-    cartItems.push(product);
-    console.log(cartItems);
-  }
+  const [selectedProduct, setSelectedProduct] = useState({});
 
   return (
     <div className='wrapper'>
 
-      <CartContext.Provider value={[cartItems, setCartItems]}>
+      <CartProvider value={selectedProduct}>
         <Router>
           <Navbar/>
           <Routes>
@@ -35,7 +29,7 @@ function App() {
 
             <Route
             path='/menu'
-            element={<Menu onAddClick={addItemToCart}/>}
+            element={<Menu onAddClick={(product) => setSelectedProduct(product)}/>}
             />
 
             <Route
@@ -56,7 +50,7 @@ function App() {
           </Routes>
 
         </Router>
-      </CartContext.Provider>
+      </CartProvider>
     </div>
   )
 }

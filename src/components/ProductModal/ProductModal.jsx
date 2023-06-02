@@ -2,12 +2,14 @@ import React from 'react';
 import Styles from './ProductModal.module.css'
 import QuantitySelector from '../quantity_selector/QuantitySelector';
 import Button from '../button/Button'
-import { Link } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 import { useState, useEffect } from 'react';
 
 function ProductModal({product, handleXClick, handleAddClick}) {
 
     const [quantity, setQuantity] = useState(1);
+
+    const {addToCart} = useCart();
 
     function handleQuantityChange(newQuantity) {
         setQuantity(newQuantity);
@@ -27,7 +29,7 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                     <div className={Styles.pricecontainer}>
                         <h2>{(product.price * quantity).toFixed(2)}€</h2>
                     </div>
-                    <div onClick={() => handleAddClick(product)}>
+                    <div onClick={() => addToCart(product)}>
                         <Button text={'Add to Cart'}/>
                     </div>
                 </div>

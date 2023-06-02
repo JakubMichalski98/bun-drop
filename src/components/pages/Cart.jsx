@@ -1,10 +1,10 @@
 import React from 'react';
-import { useContext, useEffect, useState } from 'react';
-import { CartContext } from '../../context/CartContext';
+import { useCart } from '../../context/CartContext';
 
 function Cart() {
 
-    const [cartItems, setCartItems] = useContext(CartContext);
+    const {cartItems} = useCart();
+
 
     return ( 
         <>

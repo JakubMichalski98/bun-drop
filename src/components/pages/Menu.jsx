@@ -49,7 +49,7 @@ function Menu({onAddClick}) {
           <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   
         </div>
 
-        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={(product) => onAddClick(product)}/>}
+        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={(product, quantity) => onAddClick(product, quantity)}/>}
   
         </div>
      );
