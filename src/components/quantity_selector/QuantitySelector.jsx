@@ -1,18 +1,10 @@
 import React from 'react';
 import Styles from './QuantitySelector.module.css'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-function QuantitySelector({onChange}) {
+function QuantitySelector({onChange, currentQuantity}) {
 
-    const [quantity, setQuantity] = useState(1);
-
-    // useEffect(() => {
-    //     if (currentQuantity !== null)
-    //     {
-    //         setQuantity(currentQuantity);
-    //     }
-
-    // }, [currentQuantity])
+    const [quantity, setQuantity] = useState(currentQuantity || 1);
 
     function incrementQuantity() {
         if (quantity < 10)

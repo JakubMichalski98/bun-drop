@@ -13,8 +13,10 @@ function Cart() {
             {cartItems.length > 0 ? (
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '2rem', paddingBottom:'2rem', gap: '2rem'}}>
                     <h1 style={{textAlign: 'center'}}>YOUR ITEMS</h1>
-                    {cartItems.map((i) => (
-                        <CartItem key={i.product.id} product={i.product}/>
+                    {cartItems.map((item) => (
+                        
+                        <CartItem key={item.product.id} product={item}/>
+
                     ))}
             </div>
             ) : (<div><h1 style={{textAlign: 'center', marginTop: '8rem', color:''}}>Looks empty here...</h1></div>)}
