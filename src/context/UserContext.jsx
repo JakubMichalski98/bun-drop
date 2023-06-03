@@ -4,9 +4,11 @@ const UserContext = createContext();
 
 export function UserProvider({ children }) {
 
+    const localStorageSignedIn = localStorage.getItem('is-signed-in');
+
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
-    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [isSignedIn, setIsSignedIn] = useState(localStorageSignedIn);
 
     useEffect(() => {
         async function fetchUsers() {
@@ -16,6 +18,10 @@ export function UserProvider({ children }) {
           }
           fetchUsers();
     }, [])
+
+    useEffect(() => {
+        localStorage.setItem('is-signed-in', isSignedIn)
+    }, [isSignedIn])
 
     function signInUser(username, password) {
         let userExists = users.some(u => u.username === username && u.password === password);
