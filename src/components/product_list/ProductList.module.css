@@ -17,21 +17,16 @@
 }
 
 .productlist {
-    gap: 12rem;
+    gap: 8rem;
     margin-top: 6rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-@media screen and (max-width: 1400px) {
-    .productlist {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    grid-template-columns: repeat(3, 1fr);
 }
 
 @media screen and (max-width: 992px) {
     .productlist {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 6rem;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

@@ -3,6 +3,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
+//TODO Extract finding object in localstorage into separate function
+
 export function CartProvider({ children }) {
 
   const localStorageItems = JSON.parse(localStorage.getItem('cart')) || []; 
@@ -29,21 +31,42 @@ export function CartProvider({ children }) {
 
     }
 
-    function increaseItemAmount(item, quantity) {
-        
+    function changeItemQuantity(selectedItem, newQuantity) {
+
+      const itemIndex = cartItems.findIndex(i => i.product.id === selectedItem.product.id);
+
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[itemIndex].quantity = newQuantity;
+      setCartItems(updatedCartItems);
+
+      console.log(cartItems);
+
     }
 
-    function decreaseItemAmount(item, quantity) {
 
-    }
+  function removeFromCart(selectedItem) {
+    const itemIndex = cartItems.findIndex(i => i.product.id === selectedItem.product.id);
 
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(itemIndex, 1);
+    setCartItems(updatedCartItems);
 
-  function removeFromCart(item) {
-    setCartItems(cartItems.filter((i) => i.id !== item.id));
+  }
+
+  function calculateTotalPrice() {
+
+    let total = 0;
+
+    cartItems.forEach(item => {
+       total += item.product.price * item.quantity;
+      
+    });
+
+    return total;
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, changeItemQuantity, calculateTotalPrice }}>
       {children}
     </CartContext.Provider>
   );

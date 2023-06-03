@@ -29,8 +29,8 @@
 }
 
 .closeicon {
-    margin-top: 1rem;
-    margin-left: 24rem;
+    align-self: flex-end;
+    margin-right: 2rem;
     cursor: pointer;
     font-size: 2rem;
     z-index: 9998;
@@ -47,6 +47,34 @@
 
 .pricecontainer {
     margin-top: -2rem;
+}
+
+@media only screen and (min-width: 992px) {
+    .modalcontainer {
+        height: 28rem;
+        width: 20rem;
+        margin-top: -4rem;
+    }
+
+    .modalcontainer img  {
+        margin-top: 1rem;
+        height: 160px;
+        width: 160px;
+    }
+
+    .modalcontainer h1 {
+        font-size: 20px;
+    }
+
+    .pricecontainer {
+        font-size: 10px;
+    }
+
+    .closeicon {
+        font-size: 1.5rem;
+        margin-left: 0.4rem;
+        margin-top: -2rem;
+    }
 }
 
 @media screen and (max-width: 768px) {

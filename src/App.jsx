@@ -7,6 +7,7 @@ import Menu from './components/pages/Menu';
 import SignIn from './components/pages/SignIn';
 import Register from './components/pages/Register';
 import Cart from './components/pages/Cart';
+import Payment from './components/pages/Payment'
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -45,6 +46,11 @@ function App() {
             <Route
             path='/cart'
             element={<Cart/>}
+            />
+
+            <Route
+            path='/payment'
+            element={<Payment/>}
             />
 
           </Routes>

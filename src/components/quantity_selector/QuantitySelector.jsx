@@ -27,7 +27,7 @@ function QuantitySelector({onChange, currentQuantity}) {
     return ( 
         <div className={Styles.quantityselector}>
             <button onClick={decrementQuantity}>-</button>
-            <h3>{quantity}</h3>
+            <h3 onChange={() => onChange(quantity)}>{quantity}</h3>
             <button onClick={incrementQuantity}>+</button>
             <h4></h4>
         </div>
