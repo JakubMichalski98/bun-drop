@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
+import { useUser } from '../../context/UserContext';
 import CartItem from '../cart_item/CartItem';
 import Button from '../button/Button';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { Link } from 'react-router-dom';
 function Cart() {
 
     const {cartItems, removeFromCart, changeItemQuantity, calculateTotalPrice} = useCart();
+    const {isSignedIn} = useUser();
 
     const total = calculateTotalPrice();
 
@@ -26,7 +28,7 @@ function Cart() {
                         <div style={{marginRight: '8rem'}}>
                             <h3 style={{marginBottom: '1rem'}}>Total: {total}€</h3>
                             <div style={{marginBottom: '3rem'}}>
-                                <Link to='/payment'>
+                                <Link to={isSignedIn ? '/payment' : '/signin'}>
                                     <Button text={'CHECKOUT'}/>
                                 </Link>
                         </div>

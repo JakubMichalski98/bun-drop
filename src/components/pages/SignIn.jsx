@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function SignIn() {
 
-    const {signInUser, isSignedIn} = useUser();
+    const {signInUser} = useUser();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -20,9 +20,12 @@ function SignIn() {
                 <Link to='/'>
                     <Button onClick={() => signInUser(username, password)} text='LOG IN'/>
                 </Link>
-
-                {isSignedIn && <h1>You're signed in!!</h1>}
             </form>
+
+            <h2>Don't have an account?</h2>
+            <Link to='/register'>
+                <Button text={'Register'}/>
+            </Link>
 
         </>
      );

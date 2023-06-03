@@ -39,6 +39,15 @@ export function UserProvider({ children }) {
         console.log(`isSignedIn: ${isSignedIn}`)
     }
 
+    function registerUser(username, password, confirmPassword) {
+        // check if username is valid
+        // check if password is valid
+        // check if password === confirmPassword
+        // if all above true, post request to db.json with new user
+        // else return error message
+        // if true, return empty error message
+    }
+
     return (
 
         <UserContext.Provider value={{user, signInUser, isSignedIn, signOutUser}}>
