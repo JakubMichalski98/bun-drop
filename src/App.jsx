@@ -9,6 +9,7 @@ import Register from './components/pages/Register';
 import Cart from './components/pages/Cart';
 import Payment from './components/pages/Payment'
 import { CartProvider } from './context/CartContext';
+import { UserProvider } from './context/UserContext';
 
 function App() {
 
@@ -17,46 +18,48 @@ function App() {
   return (
     <div className='wrapper'>
 
-      <CartProvider value={selectedProduct}>
-        <Router>
-          <Navbar/>
-          <Routes>
+      <UserProvider>
+        <CartProvider value={selectedProduct}>
+          <Router>
+            <Navbar/>
+            <Routes>
 
-            <Route
-            exact
-            path='/'
-            element={<Home/>}
-            />
+              <Route
+              exact
+              path='/'
+              element={<Home/>}
+              />
 
-            <Route
-            path='/menu'
-            element={<Menu onAddClick={(product) => setSelectedProduct(product)}/>}
-            />
+              <Route
+              path='/menu'
+              element={<Menu onAddClick={(product) => setSelectedProduct(product)}/>}
+              />
 
-            <Route
-            path='/signin'
-            element={<SignIn/>}
-            />
+              <Route
+              path='/signin'
+              element={<SignIn/>}
+              />
 
-            <Route
-            path='/register'
-            element={<Register/>}
-            />
+              <Route
+              path='/register'
+              element={<Register/>}
+              />
 
-            <Route
-            path='/cart'
-            element={<Cart/>}
-            />
+              <Route
+              path='/cart'
+              element={<Cart/>}
+              />
 
-            <Route
-            path='/payment'
-            element={<Payment/>}
-            />
+              <Route
+              path='/payment'
+              element={<Payment/>}
+              />
 
-          </Routes>
+            </Routes>
 
-        </Router>
-      </CartProvider>
+          </Router>
+        </CartProvider>
+      </UserProvider>
     </div>
   )
 }

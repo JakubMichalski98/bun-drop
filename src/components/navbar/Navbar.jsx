@@ -4,8 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {RxHamburgerMenu, RxCross2} from 'react-icons/rx'
+import { useUser } from '../../context/UserContext';
 
 function Navbar() {
+
+    const { isSignedIn, signOutUser } = useUser();
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobileNavClass, setMobileNavClass] = useState('');
@@ -52,9 +55,13 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={handleClick} to='/signin'>
-                            SIGN&nbsp;IN
-                        </NavLink>
+                        {!isSignedIn ? (
+                            <NavLink onClick={handleClick} to='/signin'>
+                                SIGN&nbsp;IN
+                            </NavLink>
+                        ) : (
+                            <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
+                        )}
                     </li>
                 </ul>
 

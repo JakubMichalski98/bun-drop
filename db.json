@@ -106,5 +106,22 @@
       "category": "drinks",
       "image": "src\\images\\soda-4.png"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "password",
+      "orders": [
+        {
+          "items": [
+            {
+              "productId": 1,
+              "quantity": 1 
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

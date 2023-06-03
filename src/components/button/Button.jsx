@@ -3,15 +3,9 @@ import Styles from './Button.module.css'
 
 function Button({text, onClick}) {
 
-    function handleClick() {
-        if (onClick)
-        {
-            onClick();
-        }
-    }
 
     return ( 
-        <div className={Styles.button}>
+        <div onClick={onClick} className={Styles.button}>
             {text}
         </div>
      );

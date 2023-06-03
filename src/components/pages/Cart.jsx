@@ -21,19 +21,19 @@ function Cart() {
                         <CartItem key={item.product.id} item={item} handleChange={ (quantity) => changeItemQuantity(item, quantity)} handleRemoveClick={() => removeFromCart(item)}/>
 
                     ))}
-                </div>
-            ) : (<div><h1 style={{textAlign: 'center', marginTop: '8rem', color:''}}>Looks empty here...</h1></div>)}
 
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-                    <div style={{marginRight: '8rem'}}>
-                        <h3 style={{marginBottom: '1rem'}}>Total: {total}€</h3>
-                        <div style={{marginBottom: '3rem'}}>
-                            <Link to='/payment'>
-                                <Button text={'CHECKOUT'}/>
-                            </Link>
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
+                        <div style={{marginRight: '8rem'}}>
+                            <h3 style={{marginBottom: '1rem'}}>Total: {total}€</h3>
+                            <div style={{marginBottom: '3rem'}}>
+                                <Link to='/payment'>
+                                    <Button text={'CHECKOUT'}/>
+                                </Link>
                         </div>
                     </div>
+                </div>
             </div>
+            ) : (<div><h1 style={{textAlign: 'center', marginTop: '8rem', color:''}}>Looks empty here...</h1></div>)}
              
         </div>
 
