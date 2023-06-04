@@ -10,18 +10,14 @@ export function UserProvider({ children }) {
     // SIGN IN
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
-    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [isSignedIn, setIsSignedIn] = useState(localStorage.getItem('is-signed-in') || false);
     const [invalidLogin, setInvalidLogin] = useState('');
-
-    const localStorageSignedIn = localStorage.setItem('is-signed-in', isSignedIn);
 
     useEffect(() => {
           fetchUsers();
+          console.log(isSignedIn);
     }, [])
-
-    useEffect(() => {
-        setIsSignedIn(localStorageSignedIn)
-    }, [])
+    
 
     async function fetchUsers() {
         fetch(`http://localhost:3000/users`)
@@ -31,13 +27,12 @@ export function UserProvider({ children }) {
 
     function signInUser(username, password) {
         fetchUsers();
-        console.log(username);
-        console.log(password);
         let userExists = users.some(u => u.username === username && u.password === password);
         
         if (userExists)
         {
             localStorage.setItem('is-signed-in', true);
+            console.log(localStorage.getItem('is-signed-in'));
             setIsSignedIn(true);
             navigate('/');
 
@@ -50,13 +45,12 @@ export function UserProvider({ children }) {
 
     function registeredSignIn() {
         localStorage.setItem('is-signed-in', true);
-        setIsSignedIn(true);
         navigate('/');
     }
 
     function signOutUser() {
         localStorage.setItem('is-signed-in', false);
-        setIsSignedIn(false);
+        console.log(isSignedIn);
     }
 
 

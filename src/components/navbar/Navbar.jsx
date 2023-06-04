@@ -57,12 +57,12 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                        {!isSignedIn ? (
-                            <NavLink onClick={handleClick} to='/signin'>
-                                SIGN&nbsp;IN
-                            </NavLink>
+                    { !isSignedIn ?  (
+                        <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
                         ) : (
-                            <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
+                        <NavLink onClick={handleClick} to='/signin'>
+                        SIGN&nbsp;IN
+                        </NavLink>
                         )}
                     </li>
                 </ul>
