@@ -20,7 +20,6 @@
       "price": 4.49,
       "category": "burgers",
       "image": "src\\images\\burger-4.png"
-      
     },
     {
       "id": 4,
@@ -117,11 +116,21 @@
           "items": [
             {
               "productId": 1,
-              "quantity": 1 
+              "quantity": 1
             }
           ]
         }
       ]
+    },
+    {
+      "username": "jakub",
+      "password": "jakub1234",
+      "orders": [
+        {
+          "items": []
+        }
+      ],
+      "id": 2
     }
   ]
 }

@@ -9,9 +9,11 @@ export function CartProvider({ children }) {
 
   const localStorageItems = JSON.parse(localStorage.getItem('cart')) || []; 
   const [cartItems, setCartItems] = useState(localStorageItems);
+  const [cartItemAmount, setCartItemAmount] = useState(localStorageItems.length || 0);
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
+        setCartItemAmount(cartItems.length);
     }, [cartItems])
 
   function addToCart(product, quantity) {
@@ -66,7 +68,7 @@ export function CartProvider({ children }) {
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, changeItemQuantity, calculateTotalPrice }}>
+    <CartContext.Provider value={{ cartItems, cartItemAmount, addToCart, removeFromCart, changeItemQuantity, calculateTotalPrice }}>
       {children}
     </CartContext.Provider>
   );

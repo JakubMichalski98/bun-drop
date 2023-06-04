@@ -10,6 +10,7 @@ import Cart from './components/pages/Cart';
 import Payment from './components/pages/Payment'
 import { CartProvider } from './context/CartContext';
 import { UserProvider } from './context/UserContext';
+import { ValidationProvider } from './context/ValidationContext';
 
 function App() {
 
@@ -18,48 +19,50 @@ function App() {
   return (
     <div className='wrapper'>
 
-      <UserProvider>
-        <CartProvider value={selectedProduct}>
-          <Router>
-            <Navbar/>
-            <Routes>
+      <ValidationProvider>
+          <CartProvider value={selectedProduct}>
+            <Router>
+            <UserProvider>
+              <Navbar/>
+              <Routes>
 
-              <Route
-              exact
-              path='/'
-              element={<Home/>}
-              />
+                <Route
+                exact
+                path='/'
+                element={<Home/>}
+                />
 
-              <Route
-              path='/menu'
-              element={<Menu onAddClick={(product) => setSelectedProduct(product)}/>}
-              />
+                <Route
+                path='/menu'
+                element={<Menu onAddClick={(product) => setSelectedProduct(product)}/>}
+                />
 
-              <Route
-              path='/signin'
-              element={<SignIn/>}
-              />
+                <Route
+                path='/signin'
+                element={<SignIn/>}
+                />
 
-              <Route
-              path='/register'
-              element={<Register/>}
-              />
+                <Route
+                path='/register'
+                element={<Register/>}
+                />
 
-              <Route
-              path='/cart'
-              element={<Cart/>}
-              />
+                <Route
+                path='/cart'
+                element={<Cart/>}
+                />
 
-              <Route
-              path='/payment'
-              element={<Payment/>}
-              />
-
-            </Routes>
-
-          </Router>
-        </CartProvider>
-      </UserProvider>
+                <Route
+                path='/payment'
+                element={<Payment/>}
+                />
+                
+              </Routes>
+              </UserProvider>
+            </Router>
+          </CartProvider>
+      </ValidationProvider>
+      
     </div>
   )
 }

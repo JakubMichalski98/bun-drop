@@ -1,56 +1,92 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
 
-    const localStorageSignedIn = localStorage.getItem('is-signed-in');
+    const navigate = useNavigate();
 
+    // SIGN IN
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
-    const [isSignedIn, setIsSignedIn] = useState(localStorageSignedIn);
+    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [invalidLogin, setInvalidLogin] = useState('');
+
+    const localStorageSignedIn = localStorage.setItem('is-signed-in', isSignedIn);
 
     useEffect(() => {
-        async function fetchUsers() {
-            fetch(`http://localhost:3000/users`)
-            .then(res => res.json())
-            .then(data => setUsers(data));
-          }
           fetchUsers();
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('is-signed-in', isSignedIn)
-    }, [isSignedIn])
+        setIsSignedIn(localStorageSignedIn)
+    }, [])
+
+    async function fetchUsers() {
+        fetch(`http://localhost:3000/users`)
+        .then(res => res.json())
+        .then(data => setUsers(data));
+      }
 
     function signInUser(username, password) {
+        fetchUsers();
+        console.log(username);
+        console.log(password);
         let userExists = users.some(u => u.username === username && u.password === password);
         
         if (userExists)
         {
+            localStorage.setItem('is-signed-in', true);
             setIsSignedIn(true);
+            navigate('/');
+
+        }
+        else
+        {
+            setInvalidLogin('Invalid Username or Password');
         }
     }
 
-    function signOutUser() {
-        
-        setIsSignedIn(false);
-
-        console.log(`isSignedIn: ${isSignedIn}`)
+    function registeredSignIn() {
+        localStorage.setItem('is-signed-in', true);
+        setIsSignedIn(true);
+        navigate('/');
     }
 
-    function registerUser(username, password, confirmPassword) {
-        // check if username is valid
-        // check if password is valid
-        // check if password === confirmPassword
-        // if all above true, post request to db.json with new user
-        // else return error message
-        // if true, return empty error message
+    function signOutUser() {
+        localStorage.setItem('is-signed-in', false);
+        setIsSignedIn(false);
+    }
+
+
+    function registerUser(username, password) {
+        console.log(username);
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "username": username,
+                "password": password,
+                "orders": [
+      {
+        "items": [
+
+        ]
+      }
+    ]
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error(error))
     }
 
     return (
 
-        <UserContext.Provider value={{user, signInUser, isSignedIn, signOutUser}}>
+        <UserContext.Provider value={{user, signInUser, isSignedIn, signOutUser, registerUser, invalidLogin, registeredSignIn}}>
             {children}
         </UserContext.Provider>
     )
