@@ -55,7 +55,6 @@ function RegisterForm({handleRegister}) {
             function handleFormSubmit() {
                 setErrorMessages(validateInput(formValues));
                     if (Object.keys(errorMessages).length === 0 && isSubmitted) {
-                        console.log(formValues);
                         handleRegister(true, formValues);
                     }
                 }

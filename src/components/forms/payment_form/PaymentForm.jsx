@@ -3,9 +3,12 @@ import Button from '../../button/Button';
 import { useState, useEffect } from 'react';
 import { useUser } from '../../../context/UserContext';
 import { useCart } from '../../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 
 function PaymentForm() {
+
+    const navigate = useNavigate();
 
     const [formValues, setFormValues] = useState({
         fullName: '',
@@ -96,7 +99,9 @@ function PaymentForm() {
             if (Object.keys(errorMessages).length === 0 && isSubmitted) {
                 const userCart = JSON.parse(localStorage.getItem('cart'));
                 saveUserOrder(userCart);
+                localStorage.setItem('order', JSON.stringify(userCart));
                 setCartItems([]);
+                navigate('/confirmation');
             }
         }
 

@@ -10,7 +10,7 @@ import Cart from './components/pages/Cart';
 import Payment from './components/pages/Payment'
 import { CartProvider } from './context/CartContext';
 import { UserProvider } from './context/UserContext';
-import { ValidationProvider } from './context/ValidationContext';
+import Confirmation from './components/pages/Confirmation';
 
 function App() {
 
@@ -54,6 +54,11 @@ function App() {
                 <Route
                 path='/payment'
                 element={<Payment/>}
+                />
+
+                <Route
+                path='/confirmation'
+                element={<Confirmation/>}
                 />
                 
               </Routes>

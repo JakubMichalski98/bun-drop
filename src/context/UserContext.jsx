@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
 
     // SIGN IN
     const [users, setUsers] = useState([]);
-    const [user, setUser] = useState();
+    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('user-id')) || null)
     const [isSignedIn, setIsSignedIn] = useState(localStorage.getItem('is-signed-in') || false);
     const [invalidLogin, setInvalidLogin] = useState('');
 
@@ -19,6 +19,7 @@ export function UserProvider({ children }) {
     
     useEffect(() => {
         localStorage.setItem('is-signed-in', isSignedIn);
+        localStorage.setItem('user-id', userId);
     }, [isSignedIn])
 
     async function fetchUsers() {
@@ -34,7 +35,7 @@ export function UserProvider({ children }) {
         if (userExists)
         {
             const user = users.find(u => u.username === username);
-            setUser(user);
+            setUserId(user.id);
             setIsSignedIn(true);
             navigate('/');
 
@@ -47,7 +48,7 @@ export function UserProvider({ children }) {
 
     function signOutUser() {
         setIsSignedIn(false);
-        setUser(null);
+        setUserId(null);
         console.log(isSignedIn);
         console.log("SIGNED OUT");
     }
@@ -68,12 +69,16 @@ export function UserProvider({ children }) {
     })
     .then(response => response.json())
     .then(data => console.log(data))
-    .catch(error => console.error(error))
-    .then(signInUser(username, password));
+
+    signInUser(username, password);
     
     }
 
     function saveUserOrder(order) {
+        
+        const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
+
+        console.log(user);
 
         const newOrders = user.orders;
 
@@ -98,7 +103,7 @@ export function UserProvider({ children }) {
 
     return (
 
-        <UserContext.Provider value={{signInUser, isSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder}}>
+        <UserContext.Provider value={{signInUser, isSignedIn, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder}}>
             {children}
         </UserContext.Provider>
     )
