@@ -49,8 +49,7 @@ export function UserProvider({ children }) {
     function signOutUser() {
         setIsSignedIn(false);
         setUserId(null);
-        console.log(isSignedIn);
-        console.log("SIGNED OUT");
+        navigate('/signin')
     }
 
 
@@ -64,7 +63,8 @@ export function UserProvider({ children }) {
             body: JSON.stringify({
                 "username": username,
                 "password": password,
-                "orders": []
+                "orders": [],
+                "favorites": []
         })
     })
     .then(response => response.json())
@@ -89,7 +89,8 @@ export function UserProvider({ children }) {
         const updatedUser = {
             "username": user.username,
             "password": user.password,
-            "orders": newOrders
+            "orders": newOrders,
+            "favorites": []
         }
 
         fetch(`http://localhost:3000/users/${user.id}`, {
@@ -101,9 +102,32 @@ export function UserProvider({ children }) {
           })
         }
 
+        function saveUserFavorite(product) {
+            const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
+
+            const newFavorites = user.favorites;
+
+            newFavorites.push(product.id);
+
+            const updatedUser = {
+                "username": user.username,
+                "password": user.password,
+                "orders": user.orders,
+                "favorites": newFavorites
+            }
+    
+            fetch(`http://localhost:3000/users/${user.id}`, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedUser)
+              })
+        }
+
     return (
 
-        <UserContext.Provider value={{signInUser, isSignedIn, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder}}>
+        <UserContext.Provider value={{signInUser, isSignedIn, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder, saveUserFavorite}}>
             {children}
         </UserContext.Provider>
     )

@@ -2,15 +2,29 @@ import React from 'react';
 import Styles from './ProductModal.module.css'
 import QuantitySelector from '../quantity_selector/QuantitySelector';
 import Button from '../button/Button'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useUser } from '../../context/UserContext';
 
 function ProductModal({product, handleXClick, handleAddClick}) {
 
+    //TODO Check if object is in users favorites, if it is the button enabled and when clicked removes
+    // from user favorites
+
     const [quantity, setQuantity] = useState(1);
+    const [productFavorited, setProductFavorited] = useState(false);
+
+    const {saveUserFavorite, userId} = useUser();
+
+    useEffect(() => {
+    }, [])
 
 
     function handleQuantityChange(newQuantity) {
         setQuantity(newQuantity);
+    }
+
+    function handleFavoriteClick() {
+        saveUserFavorite(product);
     }
     
     return ( 
@@ -29,6 +43,12 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                     </div>
                     <div className={Styles.btn}>
                         <Button onClick={() => handleAddClick(product, quantity)} text={'Add to Cart'}/>
+                        {productFavorited ? (
+                             <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>FAVORITE</h4>
+                        ) : (
+                            <h4 style={{textAlign: 'center'}}>UNFAVORITE</h4>
+                        )}
+                       
                     </div>
                 </div>
         </div>

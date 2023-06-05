@@ -111,69 +111,10 @@
       "username": "user",
       "password": "password",
       "orders": [],
+      "favorites": [
+        6
+      ],
       "id": 1
-    },
-    {
-      "username": "bobby",
-      "password": "bobby123",
-      "orders": [
-        [
-          {
-            "product": {
-              "id": 5,
-              "name": "The Mushroom Melt",
-              "price": 4.99,
-              "category": "burgers",
-              "image": "src\\images\\burger-6.png"
-            },
-            "quantity": 1
-          }
-        ],
-        [
-          {
-            "product": {
-              "id": 9,
-              "name": "Fries",
-              "price": 1.99,
-              "category": "sides",
-              "image": "src\\images\\fries-1.png"
-            },
-            "quantity": 1
-          }
-        ]
-      ],
-      "id": 2
-    },
-    {
-      "username": "jakub",
-      "password": "jakub1234",
-      "orders": [
-        [
-          {
-            "product": {
-              "id": 10,
-              "name": "Sweet Potato Fries",
-              "price": 2.49,
-              "category": "sides",
-              "image": "src\\images\\fries-2.png"
-            },
-            "quantity": 3
-          }
-        ],
-        [
-          {
-            "product": {
-              "id": 1,
-              "name": "The Classic",
-              "price": 3.99,
-              "category": "burgers",
-              "image": "src\\images\\burger-1.png"
-            },
-            "quantity": 1
-          }
-        ]
-      ],
-      "id": 3
     }
   ]
 }
