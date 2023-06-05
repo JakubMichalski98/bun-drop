@@ -40,6 +40,8 @@ function Navbar() {
         }
     }
 
+    //TODO FIX THIS MF WITH SIgN IN & SIGN OUt
+
     return ( 
         <nav className={Styles.navbar}>
             <Link onClick={handleClick} to='/'>
