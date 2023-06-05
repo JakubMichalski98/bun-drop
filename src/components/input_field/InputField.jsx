@@ -7,7 +7,6 @@ function InputField({type, placeholder, onChange, name}) {
     return ( 
         <>
         <input name={name} type={type} placeholder={placeholder} onChange={onChange}/>
-        <span></span>
         </>
      );
 }

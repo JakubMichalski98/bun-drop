@@ -52,9 +52,10 @@ function RegisterForm({handleRegister}) {
            
             }
 
-            function handleFormSubmit(e) {
+            function handleFormSubmit() {
                 setErrorMessages(validateInput(formValues));
                     if (Object.keys(errorMessages).length === 0 && isSubmitted) {
+                        console.log(formValues);
                         handleRegister(true, formValues);
                     }
                 }
@@ -63,11 +64,11 @@ function RegisterForm({handleRegister}) {
         <>
          <form>
             <pre>{formValues.username}</pre>
-            <input type="text" name="username" placeholder="Username" value={formValues.username} onChange={handleInputChange} />
+            <input name={'username'} type={'text'} placeholder={'Username'} value={formValues.username} onChange={handleInputChange} />
             {errorMessages.username && <p>{errorMessages.username}</p>}
-            <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={handleInputChange} />
+            <input  name={'password'} type={'password'} placeholder={'Password'} value={formValues.password} onChange={handleInputChange} />
             {errorMessages.password && <p>{errorMessages.password}</p>}
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" value={formValues.confirmPassword} onChange={handleInputChange} />
+            <input name={'confirmPassword'} type={'password'} placeholder={'Confirm Password'} value={formValues.confirmPassword} onChange={handleInputChange} />
             {errorMessages.confirmPassword && <p>{errorMessages.confirmPassword}</p>}
             <Button onClick={handleFormSubmit} text={'Register'}/>
             </form>

@@ -1,9 +1,10 @@
 import React from 'react';
+import PaymentForm from '../forms/payment_form/PaymentForm';
 
 function Payment() {
     return ( 
         <>
-            Payment
+            <PaymentForm/>
         </>
      );
 }

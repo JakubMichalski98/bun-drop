@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './ProductCard.module.css'
+import Styles from './ProductCard.module.css' 
 
 function ProductCard({product, onProductClick}) {
 

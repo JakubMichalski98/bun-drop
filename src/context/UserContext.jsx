@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
 
     // SIGN IN
     const [users, setUsers] = useState([]);
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState();
     const [isSignedIn, setIsSignedIn] = useState(localStorage.getItem('is-signed-in') || false);
     const [invalidLogin, setInvalidLogin] = useState('');
 
@@ -33,8 +33,9 @@ export function UserProvider({ children }) {
         
         if (userExists)
         {
+            const user = users.find(u => u.username === username);
+            setUser(user);
             setIsSignedIn(true);
-            console.log(isSignedIn);
             navigate('/');
 
         }
@@ -44,15 +45,9 @@ export function UserProvider({ children }) {
         }
     }
 
-    function registeredSignIn() {
-        console.log("SIGNED IN");
-        setIsSignedIn(true);
-        console.log(isSignedIn);
-        navigate('/');
-    }
-
     function signOutUser() {
         setIsSignedIn(false);
+        setUser(null);
         console.log(isSignedIn);
         console.log("SIGNED OUT");
     }
@@ -68,23 +63,42 @@ export function UserProvider({ children }) {
             body: JSON.stringify({
                 "username": username,
                 "password": password,
-                "orders": [
-      {
-        "items": [
-
-        ]
-      }
-    ]
-  })
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error(error))
+                "orders": []
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+    .then(signInUser(username, password));
+    
     }
+
+    function saveUserOrder(order) {
+
+        const newOrders = user.orders;
+
+        newOrders.push(order);
+
+        console.log(newOrders);
+
+        const updatedUser = {
+            "username": user.username,
+            "password": user.password,
+            "orders": newOrders
+        }
+
+        fetch(`http://localhost:3000/users/${user.id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedUser)
+          })
+        }
 
     return (
 
-        <UserContext.Provider value={{user, signInUser, isSignedIn, signOutUser, registerUser, invalidLogin, registeredSignIn}}>
+        <UserContext.Provider value={{signInUser, isSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder}}>
             {children}
         </UserContext.Provider>
     )
