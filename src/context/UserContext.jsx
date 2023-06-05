@@ -15,9 +15,11 @@ export function UserProvider({ children }) {
 
     useEffect(() => {
           fetchUsers();
-          console.log(isSignedIn);
-    }, [])
+    }, [])   
     
+    useEffect(() => {
+        localStorage.setItem('is-signed-in', isSignedIn);
+    }, [isSignedIn])
 
     async function fetchUsers() {
         fetch(`http://localhost:3000/users`)
@@ -31,9 +33,8 @@ export function UserProvider({ children }) {
         
         if (userExists)
         {
-            localStorage.setItem('is-signed-in', true);
-            console.log(localStorage.getItem('is-signed-in'));
             setIsSignedIn(true);
+            console.log(isSignedIn);
             navigate('/');
 
         }
@@ -44,13 +45,16 @@ export function UserProvider({ children }) {
     }
 
     function registeredSignIn() {
-        localStorage.setItem('is-signed-in', true);
+        console.log("SIGNED IN");
+        setIsSignedIn(true);
+        console.log(isSignedIn);
         navigate('/');
     }
 
     function signOutUser() {
-        localStorage.setItem('is-signed-in', false);
+        setIsSignedIn(false);
         console.log(isSignedIn);
+        console.log("SIGNED OUT");
     }
 
 

@@ -4,48 +4,7 @@ const ValidationContext = createContext();
 
 export function ValidationProvider({ children }) {
 
-    const [formValues, setFormValues] = useState(
-        {
-            username: '',
-            password: '',
-            confirmPassword: ''
-        }
-    );
-
-    const [inputs, setInputs] = useState([
-        {
-        id: 1,
-        name: 'username',
-        type: 'text',
-        placeholder: 'Username',
-        },
-        {
-            id: 2,
-            name: 'password',
-            type: 'password',
-            placeholder: 'Password',
-        },
-        {
-            id: 3,
-            name: 'confirmPassword',
-            type: 'password',
-            placeholder: 'Confirm Password',
-        }
-    ]
-    );
-
-    const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isValidationSuccess, setIsValidationSuccess] = useState(false);
-
-    useEffect(() => {
-        if (Object.keys(errorMessages).length === 0 && isSubmitted) {
-            setIsValidationSuccess(true);
-        }
-
-    }, [errorMessages])
-
-    function handleInputChange(e) {
+    function handleInputChange(e, formValues) {
         setFormValues({...formValues, [e.target.name]: e.target.value})
         setIsSubmitted(true);
     }
@@ -83,7 +42,7 @@ export function ValidationProvider({ children }) {
 
     return (
 
-        <ValidationContext.Provider value={{inputs, formValues, handleInputChange, handleFormSubmit, validateInput, errorMessages, isValidationSuccess, setIsValidationSuccess}}>
+        <ValidationContext.Provider value={{handleInputChange}}>
             {children}
         </ValidationContext.Provider>
     )

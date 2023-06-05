@@ -59,7 +59,7 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                    { !isSignedIn ?  (
+                    { isSignedIn ?  (
                         <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
                         ) : (
                         <NavLink onClick={handleClick} to='/signin'>

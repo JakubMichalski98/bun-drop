@@ -19,8 +19,7 @@ function App() {
   return (
     <div className='wrapper'>
 
-      <ValidationProvider>
-          <CartProvider value={selectedProduct}>
+          <CartProvider>
             <Router>
             <UserProvider>
               <Navbar/>
@@ -61,7 +60,6 @@ function App() {
               </UserProvider>
             </Router>
           </CartProvider>
-      </ValidationProvider>
       
     </div>
   )
