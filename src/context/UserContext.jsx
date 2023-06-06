@@ -10,7 +10,7 @@ export function UserProvider({ children }) {
     // SIGN IN
     const [users, setUsers] = useState([]);
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('user-id')) || null)
-    const [isSignedIn, setIsSignedIn] = useState(localStorage.getItem('is-signed-in') || false);
+    const [isSignedIn, setIsSignedIn] = useState(JSON.parse(localStorage.getItem('is-signed-in')) || false);
     const [invalidLogin, setInvalidLogin] = useState('');
 
     useEffect(() => {

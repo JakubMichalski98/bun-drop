@@ -71,15 +71,19 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                        {isSignedIn.toString()}
-                    { !isSignedIn ? (
+                    {isSignedIn}
+                    {!isSignedIn && <NavLink onClick={handleSignInClick} to='/signin'>
+                        SIGN&nbsp;IN
+                        </NavLink>}
+                    {isSignedIn && <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div> }
+                    {/* { !isSignedIn ? (
                         <NavLink onClick={handleSignInClick} to='/signin'>
                         SIGN&nbsp;IN
                         </NavLink>
                        
                         ) : (
                             <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div>
-                        )}
+                        )} */}
                     </li>
                 </ul>
 
