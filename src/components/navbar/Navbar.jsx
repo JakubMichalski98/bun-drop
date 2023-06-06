@@ -9,7 +9,9 @@ import { useCart } from '../../context/CartContext';
 
 function Navbar() {
 
-    const { signOutUser } = useUser();
+    // TODO: Fix dynamic sign in / sign out
+
+    const { signOutUser, isSignedIn } = useUser();
     const {cartItemAmount} = useCart();
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,6 +20,7 @@ function Navbar() {
     useEffect(() => {
         document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
     },[mobileMenuOpen])
+
 
     function toggleMobileMenu()
     {
@@ -37,7 +40,16 @@ function Navbar() {
         if (mobileMenuOpen)
         {
             toggleMobileMenu();
+
         }
+    }
+
+    function handleSignInClick() {
+        handleClick();
+    }
+
+    function handleSignOutClick() {
+        signOutUser();
     }
 
     //TODO FIX THIS MF WITH SIgN IN & SIGN OUt
@@ -59,13 +71,14 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                    { !JSON.parse(localStorage.getItem('is-signed-in')) ? (
-                        <NavLink onClick={handleClick} to='/signin'>
+                        {isSignedIn.toString()}
+                    { !isSignedIn ? (
+                        <NavLink onClick={handleSignInClick} to='/signin'>
                         SIGN&nbsp;IN
                         </NavLink>
                        
                         ) : (
-                            <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
+                            <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div>
                         )}
                     </li>
                 </ul>

@@ -735,6 +735,18 @@
             },
             "quantity": 1
           }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
         ]
       ],
       "favorites": [],
