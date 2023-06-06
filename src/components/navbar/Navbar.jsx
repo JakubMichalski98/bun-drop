@@ -9,7 +9,7 @@ import { useCart } from '../../context/CartContext';
 
 function Navbar() {
 
-    const { isSignedIn, signOutUser } = useUser();
+    const { signOutUser } = useUser();
     const {cartItemAmount} = useCart();
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,10 +18,6 @@ function Navbar() {
     useEffect(() => {
         document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
     },[mobileMenuOpen])
-
-    useEffect(() => {
-        console.log(isSignedIn);
-    }, [])
 
     function toggleMobileMenu()
     {
@@ -63,12 +59,13 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                    { isSignedIn ? (
-                        <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
-                        ) : (
+                    { !JSON.parse(localStorage.getItem('is-signed-in')) ? (
                         <NavLink onClick={handleClick} to='/signin'>
                         SIGN&nbsp;IN
                         </NavLink>
+                       
+                        ) : (
+                            <div onClick={signOutUser}>SIGN&nbsp;OUT</div>
                         )}
                     </li>
                 </ul>

@@ -110,7 +110,633 @@
     {
       "username": "user",
       "password": "password",
-      "orders": [],
+      "orders": [
+        [
+          {
+            "product": {
+              "id": 7,
+              "name": "The Firecracker",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-2.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          },
+          {
+            "product": {
+              "id": 9,
+              "name": "Fries",
+              "price": 1.99,
+              "category": "sides",
+              "image": "src\\images\\fries-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 1,
+              "name": "The Classic",
+              "price": 3.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 4,
+              "name": "The Double Trouble",
+              "price": 6.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-5.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 12,
+              "name": "Frida Early Bird",
+              "price": 1.99,
+              "category": "drinks",
+              "image": "src\\images\\soda-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 9,
+              "name": "Fries",
+              "price": 1.99,
+              "category": "sides",
+              "image": "src\\images\\fries-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 2
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 7,
+              "name": "The Firecracker",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-2.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 10,
+              "name": "Sweet Potato Fries",
+              "price": 2.49,
+              "category": "sides",
+              "image": "src\\images\\fries-2.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 10,
+              "name": "Sweet Potato Fries",
+              "price": 2.49,
+              "category": "sides",
+              "image": "src\\images\\fries-2.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 10,
+              "name": "Sweet Potato Fries",
+              "price": 2.49,
+              "category": "sides",
+              "image": "src\\images\\fries-2.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 3,
+              "name": "The Garden Delight",
+              "price": 4.49,
+              "category": "burgers",
+              "image": "src\\images\\burger-4.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 3,
+              "name": "The Garden Delight",
+              "price": 4.49,
+              "category": "burgers",
+              "image": "src\\images\\burger-4.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 4,
+              "name": "The Double Trouble",
+              "price": 6.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-5.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 4,
+              "name": "The Double Trouble",
+              "price": 6.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-5.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 1,
+              "name": "The Classic",
+              "price": 3.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 1,
+              "name": "The Classic",
+              "price": 3.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 3,
+              "name": "The Garden Delight",
+              "price": 4.49,
+              "category": "burgers",
+              "image": "src\\images\\burger-4.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 1,
+              "name": "The Classic",
+              "price": 3.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-1.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 3,
+              "name": "The Garden Delight",
+              "price": 4.49,
+              "category": "burgers",
+              "image": "src\\images\\burger-4.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ]
+      ],
       "favorites": [],
       "id": 1
     }

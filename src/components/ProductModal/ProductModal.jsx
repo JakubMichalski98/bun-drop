@@ -14,15 +14,19 @@ function ProductModal({product, handleXClick, handleAddClick}) {
 
     useEffect(() => {
 
-        const user = users.find(u => u.id === userId);
+        if (JSON.parse(localStorage.getItem('is-signed-in'))) {
+            const user = users.find(u => u.id === userId);
 
-        if (user.favorites.some(f => f === product.id)) {
-            setProductFavorited(true);
+            if (user.favorites.some(f => f === product.id)) {
+                setProductFavorited(true);
+            }
+            else
+            {
+                setProductFavorited(false);
+            }
         }
-        else
-        {
-            setProductFavorited(false);
-        }
+
+
     }, [product])
 
 
@@ -59,11 +63,14 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                     </div>
                     <div className={Styles.btn}>
                         <Button onClick={() => handleAddClick(product, quantity)} text={'Add to Cart'}/>
-                        {!productFavorited ? (
+                        {JSON.parse(localStorage.getItem('is-signed-in')) && 
+                        <div>
+                             {!productFavorited ? (
                              <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>FAVORITE</h4>
                         ) : (
                             <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>UNFAVORITE</h4>
                         )}
+                        </div> }
                        
                     </div>
                 </div>
