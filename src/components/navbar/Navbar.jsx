@@ -52,7 +52,6 @@ function Navbar() {
         signOutUser();
     }
 
-    //TODO FIX THIS MF WITH SIgN IN & SIGN OUt
 
     return ( 
         <nav className={Styles.navbar}>
@@ -76,14 +75,6 @@ function Navbar() {
                         SIGN&nbsp;IN
                         </NavLink>}
                     {isSignedIn && <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div> }
-                    {/* { !isSignedIn ? (
-                        <NavLink onClick={handleSignInClick} to='/signin'>
-                        SIGN&nbsp;IN
-                        </NavLink>
-                       
-                        ) : (
-                            <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div>
-                        )} */}
                     </li>
                 </ul>
 
