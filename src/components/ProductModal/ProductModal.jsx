@@ -7,16 +7,23 @@ import { useUser } from '../../context/UserContext';
 
 function ProductModal({product, handleXClick, handleAddClick}) {
 
-    //TODO Check if object is in users favorites, if it is the button enabled and when clicked removes
-    // from user favorites
-
     const [quantity, setQuantity] = useState(1);
     const [productFavorited, setProductFavorited] = useState(false);
 
-    const {saveUserFavorite, userId} = useUser();
+    const {saveUserFavorite, removeUserFavorite, users, userId} = useUser();
 
     useEffect(() => {
-    }, [])
+
+        const user = users.find(u => u.id === userId);
+
+        if (user.favorites.some(f => f === product.id)) {
+            setProductFavorited(true);
+        }
+        else
+        {
+            setProductFavorited(false);
+        }
+    }, [product])
 
 
     function handleQuantityChange(newQuantity) {
@@ -24,8 +31,17 @@ function ProductModal({product, handleXClick, handleAddClick}) {
     }
 
     function handleFavoriteClick() {
-        saveUserFavorite(product);
-    }
+        const user = users.find(u => u.id === userId);
+      
+        if (user.favorites.some(f => f === product.id)) {
+            removeUserFavorite(product);
+            setProductFavorited(false);
+        } 
+        else  {
+            saveUserFavorite(product);
+            setProductFavorited(true);
+        }
+      }
     
     return ( 
         <div className={Styles.modalbackground}>
@@ -43,10 +59,10 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                     </div>
                     <div className={Styles.btn}>
                         <Button onClick={() => handleAddClick(product, quantity)} text={'Add to Cart'}/>
-                        {productFavorited ? (
+                        {!productFavorited ? (
                              <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>FAVORITE</h4>
                         ) : (
-                            <h4 style={{textAlign: 'center'}}>UNFAVORITE</h4>
+                            <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>UNFAVORITE</h4>
                         )}
                        
                     </div>

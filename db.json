@@ -111,9 +111,7 @@
       "username": "user",
       "password": "password",
       "orders": [],
-      "favorites": [
-        6
-      ],
+      "favorites": [],
       "id": 1
     }
   ]

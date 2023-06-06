@@ -78,8 +78,6 @@ export function UserProvider({ children }) {
         
         const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
 
-        console.log(user);
-
         const newOrders = user.orders;
 
         newOrders.push(order);
@@ -103,6 +101,7 @@ export function UserProvider({ children }) {
         }
 
         function saveUserFavorite(product) {
+            console.log("Save user fav running");
             const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
 
             const newFavorites = user.favorites;
@@ -125,9 +124,42 @@ export function UserProvider({ children }) {
               })
         }
 
+        function removeUserFavorite(product) {
+            console.log("Remove user fav running");
+            const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
+
+            const newFavorites = user.favorites;
+
+            let favoriteIndex = newFavorites.indexOf(product.id);
+
+            console.log(newFavorites[favoriteIndex]);
+
+            newFavorites.splice(favoriteIndex, 1);
+
+
+            console.log(newFavorites);
+
+            const updatedUser = {
+                "username": user.username,
+                "password": user.password,
+                "orders": user.orders,
+                "favorites": newFavorites
+            }
+
+            console.log(updatedUser);
+    
+            fetch(`http://localhost:3000/users/${user.id}`, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedUser)
+              })
+        }
+
     return (
 
-        <UserContext.Provider value={{signInUser, isSignedIn, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder, saveUserFavorite}}>
+        <UserContext.Provider value={{signInUser, isSignedIn, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder, saveUserFavorite, removeUserFavorite, users, userId}}>
             {children}
         </UserContext.Provider>
     )
