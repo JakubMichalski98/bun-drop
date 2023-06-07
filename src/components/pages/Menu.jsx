@@ -4,6 +4,7 @@ import Searchbar from '../searchbar/Searchbar';
 import ProductModal from '../ProductModal/ProductModal';
 import { useEffect, useState } from 'react';
 import { useCart } from '../../context/CartContext';
+import { useUser } from '../../context/UserContext';
 
 function Menu() {
 
@@ -11,8 +12,11 @@ function Menu() {
     const [searchTerm, setSearchTerm] = useState('');
     const [openModal, setOpenModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState({});
+    const [userFavorites, setUserFavorites] = useState([]);
 
     const {addToCart} = useCart();
+    const {isSignedIn, userId, users, fetchUsers} =  useUser();
+    const [currentUser, setCurrentUser] = useState({});
 
     useEffect(() => {
         async function fetchProducts() {
@@ -21,9 +25,17 @@ function Menu() {
           .then(data => setProducts(data));
         }
         fetchProducts();
+        getUserFavorites();
       }, [])
 
-
+      function getUserFavorites() {
+        if (isSignedIn) {
+          if (users.some(u => u.id === userId))
+          {
+            console.log("FOUND");
+          }
+        }
+      }
 
       function handleInputChange(e) {
         setSearchTerm(e.target.value);
@@ -52,6 +64,9 @@ function Menu() {
           <Searchbar inputValue = {searchTerm} onInputChange={handleInputChange}/>
         </div> 
         <div style={{marginTop: '20px'}}>
+          {isSignedIn && <div>
+            <h1>user favs</h1>
+            </div>}
           <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
           <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
           <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   

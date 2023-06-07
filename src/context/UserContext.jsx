@@ -17,6 +17,8 @@ export function UserProvider({ children }) {
         fetchUsers();
     }, [])
 
+    
+
     useEffect(() => {
         localStorage.setItem('is-signed-in', isSignedIn);
         localStorage.setItem('user-id', userId);
@@ -54,7 +56,7 @@ export function UserProvider({ children }) {
 
 
     function registerUser(username, password) {
-        console.log(username);
+
         fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -68,10 +70,13 @@ export function UserProvider({ children }) {
         })
     })
     .then(response => response.json())
-    .then(fetchUsers);
-
-    signInUser(username, password);
+    .then(data => {
+        // Add the newly registered user to the users array
+        users.push(data);
     
+        // Sign in the newly registered user
+        signInUser(username, password);
+      });
     }
 
     function saveUserOrder(order) {
@@ -106,7 +111,7 @@ export function UserProvider({ children }) {
 
             const newFavorites = user.favorites;
 
-            newFavorites.push(product.id);
+            newFavorites.push(product);
 
             const updatedUser = {
                 "username": user.username,
@@ -130,7 +135,7 @@ export function UserProvider({ children }) {
 
             const newFavorites = user.favorites;
 
-            let favoriteIndex = newFavorites.indexOf(product.id);
+            let favoriteIndex = newFavorites.indexOf(product);
 
             console.log(newFavorites[favoriteIndex]);
 
@@ -159,7 +164,7 @@ export function UserProvider({ children }) {
 
     return (
 
-        <UserContext.Provider value={{signInUser, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder, saveUserFavorite, removeUserFavorite, users, userId, isSignedIn}}>
+        <UserContext.Provider value={{signInUser, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder, saveUserFavorite, removeUserFavorite, users, userId, isSignedIn, fetchUsers}}>
             {children}
         </UserContext.Provider>
     )

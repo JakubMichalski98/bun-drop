@@ -9,8 +9,6 @@ import { useCart } from '../../context/CartContext';
 
 function Navbar() {
 
-    // TODO: Fix dynamic sign in / sign out
-
     const { signOutUser, isSignedIn } = useUser();
     const {cartItemAmount} = useCart();
 

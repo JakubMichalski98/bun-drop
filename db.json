@@ -110,16 +110,61 @@
     {
       "username": "user",
       "password": "password",
-      "orders": [],
-      "favorites": [],
+      "orders": [
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ]
+      ],
+      "favorites": [
+        {
+          "id": 2,
+          "name": "The Baconator",
+          "price": 5.99,
+          "category": "burgers",
+          "image": "src\\images\\burger-3.png"
+        },
+        {
+          "id": 1,
+          "name": "The Classic",
+          "price": 3.99,
+          "category": "burgers",
+          "image": "src\\images\\burger-1.png"
+        }
+      ],
       "id": 1
-    },
-    {
-      "username": "jakub",
-      "password": "jakub1234",
-      "orders": [],
-      "favorites": [],
-      "id": 2
     }
   ]
 }
