@@ -14,12 +14,13 @@ function PaymentForm({navigateToConfirmation}) {
         fullName: '',
         street: '',
         city: '',
-        zipCode: ''
+        zipCode: '',
     })
 
     
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('');
 
     useEffect(() => {
         if (Object.keys(errorMessages).length === 0 && isSubmitted) {
@@ -38,15 +39,15 @@ function PaymentForm({navigateToConfirmation}) {
         console.log(formValues);
         }
 
+        function handleOptionChange(e) {
+            setSelectedOption(e.target.value);
+        }
+
         function validateInput(values) {
             const errors = {}
             
             if (!values.fullName) {
             errors.fullName = 'Full name is required';
-            }
-            else if (values.fullName < 5)
-            {
-                errors.fullName = 'AT LEAST 5'
             }
            
             if (!values.street) {
@@ -58,12 +59,37 @@ function PaymentForm({navigateToConfirmation}) {
             }
            
             if (!values.zipCode) {
-            errors.zipCode = "Zipcode is required";
+            errors.zipCode = 'Zipcode is required';
+            }
+
+            if(selectedOption === '') {
+                errors.selectedOption = 'Payment option is required';
+            }
+            else if (selectedOption === 'card') {
+                
+                if (!values.cardNumber) {
+                    errors.cardNumber = 'Card number is required';
+                }
+
+                if (!values.expirationDate) {
+                    errors.expirationDate = 'Card number is required';
+                }
+
+                if (!values.cvcCode) {
+                    errors.cvcCode = 'CVC Code is required';
+                }
+            }
+            else if (selectedOption === 'swish') {
+                if (!values.phoneNumber) {
+                    errors.phoneNumber = 'Phone number is required';
+                }
             }
             
+            console.log(errors);
             return errors;
            
             }
+
 
             function handleFormSubmit() {
                 setErrorMessages(validateInput(formValues));
@@ -83,7 +109,36 @@ function PaymentForm({navigateToConfirmation}) {
             <input name='zipCode' type='number' placeholder='Zip Code' value={formValues.zipCode} onChange={handleInputChange}/>
             {errorMessages.zipCode && <p>{errorMessages.zipCode}</p>}
 
-                <Button text={'Complete payment'} onClick={handleFormSubmit}/>
+            <div style={{display: 'flex'}}>
+                <label>
+                    <input value='card' checked={selectedOption === 'card'} type='radio' onChange={handleOptionChange}/>
+                    Debit Card
+                </label>
+                <label>
+                    <input value='swish' checked={selectedOption === 'swish'} type='radio' onChange={handleOptionChange}/>
+                    Swish
+                </label>
+                {errorMessages.selectedOption && <div><p>{errorMessages.selectedOption}</p></div>}
+            </div>
+
+            {selectedOption === 'card' &&
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+                        <input name='cardNumber' type='number' placeholder='Card Number' value={formValues.cardNumber} onChange={handleInputChange}/>
+                        {errorMessages.cardNumber && <p>{errorMessages.cardNumber}</p>}
+
+                        <input name='expirationDate' type='number' placeholder='Expiration Date' value={formValues.expirationDate} onChange={handleInputChange}/>
+                        {errorMessages.expirationDate && <p>{errorMessages.expirationDate}</p>}
+
+                        <input name='cvcCode' type='number' placeholder='CVC' value={formValues.cvcCode} onChange={handleInputChange}/>
+                        {errorMessages.cvcCode && <p>{errorMessages.cvcCode}</p>}
+                    </div>}
+                    {selectedOption === 'swish' &&  <div>
+                   
+                   <input name='phoneNumber' type='number' placeholder='Phone number' value={formValues.phoneNumber} onChange={handleInputChange}/>
+                   {errorMessages.phoneNumber && <p>{errorMessages.phoneNumber}</p>}
+               </div> }
+
+            <Button text={'Complete payment'} onClick={handleFormSubmit}/>
 
         </form>
      );

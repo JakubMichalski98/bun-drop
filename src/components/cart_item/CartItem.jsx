@@ -5,8 +5,6 @@ import {BsTrash} from 'react-icons/bs'
 
 function CartItem({item, handleChange, handleRemoveClick}) {
 
-    //TODO Implement handleQuantityChange function in CartContext that changes the quantity of the localstorage product in array
-
     return ( 
         <div className={Styles.cartitem}>
             <div className={Styles.leftside}>

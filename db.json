@@ -146,25 +146,65 @@
             },
             "quantity": 1
           }
+        ],
+        [
+          {
+            "product": {
+              "id": 3,
+              "name": "The Garden Delight",
+              "price": 4.49,
+              "category": "burgers",
+              "image": "src\\images\\burger-4.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 4,
+              "name": "The Double Trouble",
+              "price": 6.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-5.png"
+            },
+            "quantity": 1
+          }
         ]
       ],
-      "favorites": [
-        {
-          "id": 2,
-          "name": "The Baconator",
-          "price": 5.99,
-          "category": "burgers",
-          "image": "src\\images\\burger-3.png"
-        },
-        {
-          "id": 1,
-          "name": "The Classic",
-          "price": 3.99,
-          "category": "burgers",
-          "image": "src\\images\\burger-1.png"
-        }
-      ],
+      "favorites": [],
       "id": 1
+    },
+    {
+      "username": "albon",
+      "password": "password",
+      "orders": [],
+      "favorites": [],
+      "id": 2
     }
   ]
 }

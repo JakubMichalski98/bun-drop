@@ -12,11 +12,10 @@ function Menu() {
     const [searchTerm, setSearchTerm] = useState('');
     const [openModal, setOpenModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState({});
-    const [userFavorites, setUserFavorites] = useState([]);
+    const [userFavorites, setUserFavorites] = useState();
 
     const {addToCart} = useCart();
-    const {isSignedIn, userId, users, fetchUsers} =  useUser();
-    const [currentUser, setCurrentUser] = useState({});
+    const {isSignedIn, userId, users} =  useUser();
 
     useEffect(() => {
         async function fetchProducts() {
@@ -30,12 +29,14 @@ function Menu() {
 
       function getUserFavorites() {
         if (isSignedIn) {
-          if (users.some(u => u.id === userId))
-          {
-            console.log("FOUND");
-          }
+          console.log(userId);
+          setUserFavorites(users.find(u => u.id === userId));
         }
       }
+
+      useEffect(() => {
+        console.log(userFavorites);
+      }, [userFavorites])
 
       function handleInputChange(e) {
         setSearchTerm(e.target.value);
@@ -65,7 +66,6 @@ function Menu() {
         </div> 
         <div style={{marginTop: '20px'}}>
           {isSignedIn && <div>
-            <h1>user favs</h1>
             </div>}
           <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
           <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
