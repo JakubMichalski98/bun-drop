@@ -12,11 +12,11 @@ export function UserProvider({ children }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('user-id')) || null)
     const [isSignedIn, setIsSignedIn] = useState(JSON.parse(localStorage.getItem('is-signed-in')) || false);
     const [invalidLogin, setInvalidLogin] = useState('');
-
-    useEffect(() => {
-          fetchUsers();
-    }, [])   
     
+    useEffect(() => {
+        fetchUsers();
+    }, [])
+
     useEffect(() => {
         localStorage.setItem('is-signed-in', isSignedIn);
         localStorage.setItem('user-id', userId);
@@ -29,7 +29,7 @@ export function UserProvider({ children }) {
       }
 
     function signInUser(username, password) {
-        fetchUsers();
+        console.log(users);
         let userExists = users.some(u => u.username === username && u.password === password);
         
         if (userExists)
@@ -68,7 +68,7 @@ export function UserProvider({ children }) {
         })
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(fetchUsers);
 
     signInUser(username, password);
     

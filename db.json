@@ -113,6 +113,13 @@
       "orders": [],
       "favorites": [],
       "id": 1
+    },
+    {
+      "username": "jakub",
+      "password": "jakub1234",
+      "orders": [],
+      "favorites": [],
+      "id": 2
     }
   ]
 }
