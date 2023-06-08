@@ -13,7 +13,7 @@ function Hero() {
                 </p>
                     <div className={Styles.desktopbuttoncontainer}>
                         <Link to='/menu'>
-                            <Button text={'ORDER NOW'}/>
+                            <Button fontSize='2rem' text={'ORDER NOW'}/>
                         </Link>
                     </div>
             </div>
@@ -24,7 +24,7 @@ function Hero() {
 
             <div className={Styles.mobilebuttoncontainer}>
                 <Link to='/menu'>
-                    <Button text={'ORDER NOW'}/>
+                    <Button fontSize='2rem' text={'ORDER NOW'}/>
                 </Link>
             </div>
 

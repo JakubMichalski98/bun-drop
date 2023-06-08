@@ -22,7 +22,7 @@ function App() {
           <CartProvider>
             <Router>
             <UserProvider>
-              <Navbar/>
+            <Navbar/>
               <Routes>
 
                 <Route

@@ -29,6 +29,10 @@ function Menu() {
       }, [])
 
       useEffect(() => {
+        document.body.style.overflow = openModal ? 'hidden' : 'auto';
+    },[openModal])
+
+      useEffect(() => {
         if (user) {
           setUserFavorites(user.favorites);
         }
@@ -57,28 +61,26 @@ function Menu() {
 
     return ( 
         <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center'}}>
-        <h1 style={{textAlign: 'center', fontSize: '60px', fontWeight: 'normal', color: '#414241', marginTop: '40px'}}>Our Products</h1>
-        <div>
-          <Searchbar inputValue = {searchTerm} onInputChange={handleInputChange}/>
-        </div> 
-        <div style={{marginTop: '20px'}}>
-          {isSignedIn && user &&
-           <div>
-            <h1>yo</h1>
-            {userFavorites.map((f) => (
-              <p>{f.name}</p>
-            ))}
-          </div>}
+          <h1 style={{textAlign: 'center', fontSize: '60px', fontWeight: 'normal', color: '#414241', marginTop: '40px'}}>Our Products</h1>
+          <div>
+            <Searchbar inputValue = {searchTerm} onInputChange={handleInputChange}/>
+          </div> 
+          <div style={{marginTop: '20px'}}>
+            {isSignedIn && user &&
+            <div>
+              <h1>yo</h1>
+              {userFavorites.map((f) => (
+                <p>{f.name}</p>
+              ))}
+            </div>}
       
             <ProductList products = {userFavorites} category = {''} searchTerm = {searchTerm} onClick={handleClick}/>
             <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
             <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
             <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>
           
-        </div>
-
-        {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={handleAddClick}/>}
-  
+          </div>
+          {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={handleAddClick}/>}
         </div>
      );
 }

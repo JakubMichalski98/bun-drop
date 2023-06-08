@@ -23,15 +23,7 @@ function Navbar() {
     function toggleMobileMenu()
     {
         setMobileMenuOpen(!mobileMenuOpen);
-        
-        if (!mobileMenuOpen)
-        {
-            setMobileNavClass(`${Styles.navmobile}`);
-        }
-        else
-        {
-            setMobileNavClass(`${Styles.navlinks}`);
-        }
+    
     }
 
     function handleClick() {
@@ -52,7 +44,7 @@ function Navbar() {
 
 
     return ( 
-        <div>
+        <div className={mobileMenuOpen ? '' : Styles.navcontainer}>
             <nav className={Styles.navbar}>
                 <Link onClick={handleClick} to='/'>
                     <img src='/src\images\logo-color.png'/>
@@ -85,7 +77,8 @@ function Navbar() {
                     <div className={Styles.cart}>
                         <NavLink onClick={handleClick} to='/cart'>
                             <AiOutlineShoppingCart className={Styles.carticon}/>
-                            <div className={Styles.cartitemcount}>{cartItemAmount}</div>
+                            {cartItemAmount > 0 && <div className={Styles.cartitemcount}>{cartItemAmount}</div>}
+
                         </NavLink>
                     </div>
                 </div> 
@@ -93,23 +86,23 @@ function Navbar() {
             {mobileMenuOpen && 
             
             <div>
-                    <ul className={Styles.mobilenav}>
-                    <li>
-                        <NavLink onClick={handleClick} to='/'>
-                            HOME
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink onClick={handleClick} to='/menu'>
-                            MENU
-                        </NavLink>
-                    </li>
-                    <li>
-                    {isSignedIn}
-                    {!isSignedIn && <NavLink onClick={handleSignInClick} to='/signin'>
-                        SIGN&nbsp;IN
-                        </NavLink>}
-                    {isSignedIn && <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div> }
+                <ul className={Styles.mobilenav}>
+                <li>
+                    <NavLink onClick={handleClick} to='/'>
+                        HOME
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink onClick={handleClick} to='/menu'>
+                        MENU
+                    </NavLink>
+                </li>
+                <li>
+                {isSignedIn}
+                {!isSignedIn && <NavLink onClick={handleSignInClick} to='/signin'>
+                    SIGN&nbsp;IN
+                    </NavLink>}
+                {isSignedIn && <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div> }
                     </li>
                 </ul>
             </div>}

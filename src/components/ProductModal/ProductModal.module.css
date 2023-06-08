@@ -1,36 +1,28 @@
-.modalbackground {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(200, 200, 200, 0.5);
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .modalcontainer {
-    margin-top: -8rem;
+    position: fixed;
+    margin-top: -2.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 38rem;
-    width: 30rem;
+    height: 30rem;
+    width: 24rem;
     background-color: white;
     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.45);
     border-radius: 16px;
+    z-index: 10000;
 }
 
 .modalcontainer img {
-    margin-top: 4rem;
+    margin-top: 2rem;
     border-radius: 24px;
-    height: 180px;
-    width: 180px;
+    width: 10rem;
 }
 
 .closeicon {
-    align-self: flex-end;
-    margin-right: 2rem;
+    position: absolute;
+    top: 2%;
+    right: 8%;
     cursor: pointer;
     font-size: 2rem;
     z-index: 9998;
@@ -49,47 +41,8 @@
     margin-top: -2rem;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 768px) {
     .modalcontainer {
-        height: 28rem;
-        width: 20rem;
-        margin-top: -4rem;
-    }
-
-    .modalcontainer img  {
-        margin-top: 1rem;
-        height: 160px;
-        width: 160px;
-    }
-
-    .modalcontainer h1 {
-        font-size: 20px;
-    }
-
-    .pricecontainer {
-        font-size: 10px;
-    }
-
-    .closeicon {
-        font-size: 1.5rem;
-        margin-left: 0.4rem;
-        margin-top: -2rem;
+        margin-top: 6rem;
     }
 }
-
-@media screen and (max-width: 768px) {
-    .modalcontainer {
-        height: 100vh;
-        width: 100vw;
-    }
-
-    .closeicon {
-        display: flex;
-        align-self: flex-end;
-        margin-top: -6rem;
-        margin-bottom: 2rem;
-        margin-right: 2rem;
-    }
-
-}
-

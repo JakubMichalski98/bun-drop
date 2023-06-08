@@ -4,6 +4,7 @@ import QuantitySelector from '../quantity_selector/QuantitySelector';
 import Button from '../button/Button'
 import { useState, useEffect } from 'react';
 import { useUser } from '../../context/UserContext';
+import {RxCross2} from 'react-icons/rx'
 
 function ProductModal({product, handleXClick, handleAddClick}) {
 
@@ -48,11 +49,8 @@ function ProductModal({product, handleXClick, handleAddClick}) {
       }
     
     return ( 
-        <div className={Styles.modalbackground}>
             <div className={Styles.modalcontainer}>
-                <div className={Styles.closeicon} onClick={handleXClick}>
-                    X
-                </div>
+                <RxCross2 className={Styles.closeicon} onClick={handleXClick}/>
                     <img src={product.image}/>
                     <h1>{product.name}</h1>
                     <div className={Styles.quantityselectorcontainer}>
@@ -62,7 +60,7 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                         <h2>{(product.price * quantity).toFixed(2)}€</h2>
                     </div>
                     <div className={Styles.btn}>
-                        <Button onClick={() => handleAddClick(product, quantity)} text={'Add to Cart'}/>
+                        <Button fontSize='1.5rem' onClick={() => handleAddClick(product, quantity)} text={'Add to Cart'}/>
                         {JSON.parse(localStorage.getItem('is-signed-in')) && 
                         <div>
                              {!productFavorited ? (
@@ -74,7 +72,6 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                        
                     </div>
                 </div>
-        </div>
      );
 }
 

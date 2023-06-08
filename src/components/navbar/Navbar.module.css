@@ -23,16 +23,19 @@ body {
     font-family: 'Burnest', sans-serif;
  }
 
-.navbar {
+ .navcontainer {
    top: 0;
+   position: sticky;
+ }
+
+.navbar {
+
    height: 80px;
    display: flex;
    justify-content: space-between;
    align-items: center;
    padding: 0.5rem;
-   z-index: 10;
-   position: sticky;
-   z-index: 9998;
+   z-index: 11000 ;
    background-color: #EEECE9;
    box-shadow: 1px 1px 20px grey;
 }
@@ -71,7 +74,6 @@ body {
 
  .cart {
    position: relative;
-   border: 1px red dotted;
    margin-right: 3rem;
    display: flex;
    align-items: center;
