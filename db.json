@@ -110,17 +110,8 @@
     {
       "username": "user",
       "password": "password",
-      "orders": [
-      ],
-      "favorites": [
-        {
-          "id": 1,
-          "name": "The Classic",
-          "price": 3.99,
-          "category": "burgers",
-          "image": "src\\images\\burger-1.png"
-        }
-      ],
+      "orders": [],
+      "favorites": [],
       "id": 1
     },
     {

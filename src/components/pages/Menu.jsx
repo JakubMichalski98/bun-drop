@@ -26,8 +26,13 @@ function Menu() {
           .then(data => setProducts(data));
         }
         fetchProducts();
-        console.log(users);
       }, [])
+
+      useEffect(() => {
+        if (user) {
+          setUserFavorites(user.favorites);
+        }
+      }, [users])
 
 
       function handleInputChange(e) {
@@ -60,13 +65,14 @@ function Menu() {
           {isSignedIn && user &&
            <div>
             <h1>yo</h1>
-            {user.favorites.map((f) => (
+            {userFavorites.map((f) => (
               <p>{f.name}</p>
             ))}
           </div>}
+          <ProductList products = {userFavorites} category = {''} searchTerm = {searchTerm} onClick={handleClick}/>
           <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
           <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
-          <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>   
+          <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>
         </div>
 
         {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={handleAddClick}/>}

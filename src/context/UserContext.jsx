@@ -11,7 +11,7 @@ export function UserProvider({ children }) {
     const [users, setUsers] = useState([]);
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('user-id')) || null)
     const [isSignedIn, setIsSignedIn] = useState(JSON.parse(localStorage.getItem('is-signed-in')) || false);
-    const [invalidLogin, setInvalidLogin] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     
     useEffect(() => {
         fetchUsers();
@@ -39,12 +39,13 @@ export function UserProvider({ children }) {
             const user = users.find(u => u.username === username);
             setUserId(user.id);
             setIsSignedIn(true);
+            setErrorMessage('');
             navigate('/');
 
         }
         else
         {
-            setInvalidLogin('Invalid Username or Password');
+            setErrorMessage('Invalid Username or Password');
         }
     }
 
@@ -164,7 +165,7 @@ export function UserProvider({ children }) {
 
     return (
 
-        <UserContext.Provider value={{signInUser, setIsSignedIn, signOutUser, registerUser, invalidLogin, saveUserOrder, saveUserFavorite, removeUserFavorite, users, userId, isSignedIn, fetchUsers}}>
+        <UserContext.Provider value={{signInUser, setIsSignedIn, signOutUser, registerUser, invalidLogin: errorMessage, saveUserOrder, saveUserFavorite, removeUserFavorite, users, userId, isSignedIn, fetchUsers}}>
             {children}
         </UserContext.Provider>
     )

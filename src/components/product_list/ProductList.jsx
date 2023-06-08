@@ -3,10 +3,22 @@ import Styles from './ProductList.module.css'
 import ProductCard from '../product_card/ProductCard';
 
 function ProductList({products, category, searchTerm, onClick}) {
-    
-    const categoryProducts = products.filter(p => p.category === category);
-    const filteredProducts = categoryProducts.filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
-    const displayCategory = category.charAt(0).toUpperCase() + category.slice(1);
+
+    let filteredProducts = [];
+    let categoryProducts = [];
+    let displayCategory = '';
+
+    if (category === '') {
+        categoryProducts = [...products];
+        filteredProducts = categoryProducts.filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        displayCategory = 'Your Favorites';
+    }
+    else {
+         categoryProducts = products.filter(p => p.category === category);
+         filteredProducts = categoryProducts.filter((p) => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+         displayCategory = category.charAt(0).toUpperCase() + category.slice(1);
+    }
+
 
     function handleClick(product) {
         onClick(product);

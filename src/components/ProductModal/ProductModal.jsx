@@ -17,7 +17,7 @@ function ProductModal({product, handleXClick, handleAddClick}) {
         if (JSON.parse(localStorage.getItem('is-signed-in'))) {
             const user = users.find(u => u.id === userId);
 
-            if (user.favorites.some(f => f === product.id)) {
+            if (user.favorites.some(f => f === product)) {
                 setProductFavorited(true);
             }
             else
@@ -37,7 +37,7 @@ function ProductModal({product, handleXClick, handleAddClick}) {
     function handleFavoriteClick() {
         const user = users.find(u => u.id === userId);
       
-        if (user.favorites.some(f => f === product.id)) {
+        if (user.favorites.some(f => f === product)) {
             removeUserFavorite(product);
             setProductFavorited(false);
         } 
