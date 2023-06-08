@@ -11,7 +11,7 @@
 
 .container {
     padding: 4rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -21,7 +21,7 @@
 
 .text {
     margin-bottom: 14rem;
-    max-width: 40%
+    width: 
 }
 
 .heroimage {
@@ -57,8 +57,8 @@
 @media only screen and (max-width: 992px) {
     
     .heroimage {
-        margin-top: -8rem;
-        width: 16rem;
+        margin-top: -12rem;
+        width: 20rem;
     }
 
     .text h1 {
@@ -69,8 +69,47 @@
         font-size: 0.8rem
     }
 
+    .text {
+        min-width: 50%;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {
+    .container {
+        margin-top: -4rem;
+        gap: 6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .heroimage {
+        margin-top: -6rem;
+        height: 320px;
+        width: 320px;
+    }
+    .container h1 {
+        font-size: 52px;
+    }
+
+    .container p {
+        font-size: 14px;
+    }
+
+    .text {
+        text-align: center;
+        margin-bottom: 10%;
+        width: 100%;
+    }
+
+    .mobilebuttoncontainer {
+        display: flex;
+        margin-bottom: 2rem;
+    }
+
+    .desktopbuttoncontainer {
+        display: none;
+    }
 }
