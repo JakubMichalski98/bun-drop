@@ -44,7 +44,7 @@ function Navbar() {
 
 
     return ( 
-        <div className={mobileMenuOpen ? '' : Styles.navcontainer}>
+        <div>
             <nav className={Styles.navbar}>
                 <Link onClick={handleClick} to='/'>
                     <img src='/src\images\logo-color.png'/>
