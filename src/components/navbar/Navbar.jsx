@@ -30,7 +30,7 @@ function Navbar() {
         }
         else
         {
-            setMobileNavClass('');
+            setMobileNavClass(`${Styles.navlinks}`);
         }
     }
 
@@ -52,11 +52,48 @@ function Navbar() {
 
 
     return ( 
-        <nav className={Styles.navbar}>
-            <Link onClick={handleClick} to='/'>
-                <img src='/src\images\logo-color.png'/>
-            </Link>
-                <ul className={`${Styles.navlinks} ${mobileNavClass}`}>
+        <div>
+            <nav className={Styles.navbar}>
+                <Link onClick={handleClick} to='/'>
+                    <img src='/src\images\logo-color.png'/>
+                </Link>
+                {!mobileMenuOpen &&  
+                <ul className={`${Styles.navlinks}`}>
+                    <li>
+                        <NavLink onClick={handleClick} to='/'>
+                            HOME
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink onClick={handleClick} to='/menu'>
+                            MENU
+                        </NavLink>
+                    </li>
+                    <li>
+                    {isSignedIn}
+                    {!isSignedIn && <NavLink onClick={handleSignInClick} to='/signin'>
+                        SIGN&nbsp;IN
+                        </NavLink>}
+                    {isSignedIn && <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div> }
+                    </li>
+                </ul>}
+
+                <div className={Styles.iconcontainer}>
+                    <div onClick={toggleMobileMenu} className={Styles.hamburger}>
+                        {!mobileMenuOpen ? (<RxHamburgerMenu className={Styles.hamburgericon}/>) : (<RxCross2 className={Styles.hamburgericon}/>)}
+                    </div>
+                    <div className={Styles.cart}>
+                        <NavLink onClick={handleClick} to='/cart'>
+                            <AiOutlineShoppingCart className={Styles.carticon}/>
+                            <div className={Styles.cartitemcount}>{cartItemAmount}</div>
+                        </NavLink>
+                    </div>
+                </div> 
+            </nav>
+            {mobileMenuOpen && 
+            
+            <div>
+                    <ul className={Styles.mobilenav}>
                     <li>
                         <NavLink onClick={handleClick} to='/'>
                             HOME
@@ -75,21 +112,10 @@ function Navbar() {
                     {isSignedIn && <div onClick={handleSignOutClick}>SIGN&nbsp;OUT</div> }
                     </li>
                 </ul>
+            </div>}
+        </div>
 
-                <div className={Styles.iconcontainer}>
-                    <div onClick={toggleMobileMenu} className={Styles.hamburger}>
-                        {!mobileMenuOpen ? (<RxHamburgerMenu className={Styles.hamburgericon}/>) : (<RxCross2 className={Styles.hamburgericon}/>)}
-                    </div>
-                    <div className={Styles.cart}>
-                        <NavLink onClick={handleClick} to='/cart'>
-                            <AiOutlineShoppingCart className={Styles.carticon}/>
-                            <div className={Styles.cartitemcount}>{cartItemAmount}</div>
-                        </NavLink>
-                    </div>
-                </div>
-
-               
-        </nav>
+    
      );
 }
 

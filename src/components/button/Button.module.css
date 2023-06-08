@@ -1,10 +1,10 @@
 .button {
-    font-size: 25px;
+    width: 12rem;
+    font-size: 2rem;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 246px;
-    height: 50px;
     border-radius: 150px;
     background-color: #FFA07A;
     color: white;
@@ -13,10 +13,17 @@
     user-select: none;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 992px) {
     .button {
-        font-size: 20px;
-        width: 200px;
-        height: 40px;
+        font-size: 1.5rem;
+        width: 9rem;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .button {
+        width: 12rem;
+        font-size: 2rem;
+    }
+}
+

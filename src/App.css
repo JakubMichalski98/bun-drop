@@ -25,6 +25,10 @@ html, body {
   color: #414241;
 }
 
+ul {
+  list-style: none;
+}
+
 .active {
   color: #FFA07A;
 }
