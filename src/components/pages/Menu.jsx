@@ -69,10 +69,12 @@ function Menu() {
               <p>{f.name}</p>
             ))}
           </div>}
-          <ProductList products = {userFavorites} category = {''} searchTerm = {searchTerm} onClick={handleClick}/>
-          <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
-          <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
-          <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>
+      
+            <ProductList products = {userFavorites} category = {''} searchTerm = {searchTerm} onClick={handleClick}/>
+            <ProductList products = {products} category = {'burgers'} searchTerm = {searchTerm} onClick={handleClick}/> 
+            <ProductList products = {products} category = {'sides'} searchTerm = {searchTerm} onClick={handleClick}/>       
+            <ProductList products = {products} category = {'drinks'} searchTerm = {searchTerm} onClick={handleClick}/>
+          
         </div>
 
         {openModal && <ProductModal product = {selectedProduct} handleXClick={handleCloseClick} handleAddClick={handleAddClick}/>}

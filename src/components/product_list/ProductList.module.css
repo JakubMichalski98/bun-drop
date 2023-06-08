@@ -18,14 +18,12 @@
 
 .productlist {
     gap: 8rem;
-    margin-top: 6rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
 @media screen and (max-width: 992px) {
-    .productlist {
-        gap: 6rem;
+    .productlist {  
         grid-template-columns: repeat(3, 1fr);
     }
 }

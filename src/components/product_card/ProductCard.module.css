@@ -27,6 +27,7 @@
 }
 
 .textcontainer {
+    max-width: 10rem;
     margin-left: 6px;
 }
 
@@ -37,10 +38,14 @@
     }
 }
 
-@media screen and (min-width: 992px) {
-    .productcard img {
-        height: 240px;
-        width: 240px;
+@media screen and (max-width: 992px) {
+    /* .productcard img {
+        height: 120px;
+        width: 120px;
+    } */
+
+    .productcard h3 {
+        font-size: 1rem;
     }
 }
 
