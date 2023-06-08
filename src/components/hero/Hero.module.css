@@ -38,3 +38,39 @@
     width: 246px;
     margin-top: 6rem;
 }
+
+@media only screen and (max-width: 1200px) {
+
+    .heroimage {
+        width: 24rem;
+    }
+    
+    .text h1 {
+        font-size: 3rem;
+    }
+
+    .text p {
+        font-size: 0.8rem
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    
+    .heroimage {
+        margin-top: -8rem;
+        width: 16rem;
+    }
+
+    .text h1 {
+        font-size: 2rem;
+    }
+
+    .text p {
+        font-size: 0.8rem
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+}
