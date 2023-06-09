@@ -7,11 +7,10 @@
 }
 
 .register {
-    border: 2px red dotted;
     margin-top: 4rem;
     margin-bottom: 4rem;
     width: 20rem; 
-    height: 32rem;
+    height: 28rem;
     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.45);
     background-color: white;
     padding: 2rem;
@@ -31,4 +30,5 @@
 
 .registercontainer p {
     color: red;
+    margin: 0;
 }
