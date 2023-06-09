@@ -7,6 +7,7 @@ import SignIn from './components/pages/sign_in/SignIn';
 import Register from './components/pages/register/Register';
 import Cart from './components/pages/cart/Cart';
 import Payment from './components/pages/payment/Payment'
+import NotFound from './components/pages/NotFound/NotFound';
 import { CartProvider } from './context/CartContext';
 import { UserProvider } from './context/UserContext';
 import Confirmation from './components/pages/confirmation/Confirmation';
@@ -56,6 +57,12 @@ function App() {
                 <Route
                 path='/confirmation'
                 element={<Confirmation/>}
+                />
+
+                <Route
+                path='*'
+                element={<NotFound/>}
+
                 />
                 
               </Routes>

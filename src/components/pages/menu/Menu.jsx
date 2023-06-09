@@ -48,7 +48,6 @@ function Menu() {
       {
         setSelectedProduct(product);
         setOpenModal(true);
-        console.log(`${product.name} clicked!`);
       }
       
       function handleAddClick(product, quantity) {

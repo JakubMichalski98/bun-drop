@@ -3,8 +3,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
-//TODO Extract finding object in localstorage into separate function
-
 export function CartProvider({ children }) {
 
   const localStorageItems = JSON.parse(localStorage.getItem('cart')) || []; 
@@ -27,9 +25,7 @@ export function CartProvider({ children }) {
         const updatedCartItems = [...cartItems];
         updatedCartItems[itemIndex].quantity += quantity;
         setCartItems(updatedCartItems);
-    }
-
-    console.log(cartItems);
+        }
 
     }
 
@@ -40,8 +36,6 @@ export function CartProvider({ children }) {
       const updatedCartItems = [...cartItems];
       updatedCartItems[itemIndex].quantity = newQuantity;
       setCartItems(updatedCartItems);
-
-      console.log(cartItems);
 
     }
 

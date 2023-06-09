@@ -11,7 +11,6 @@ function Payment() {
 
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem('cart')));
-        console.log(cart.length);
     }, [])
 
     function navigateToConfirmation(validationSuccess) {

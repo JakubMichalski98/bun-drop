@@ -12,18 +12,3 @@
     cursor: pointer;
     user-select: none;
 }
-
-/* @media only screen and (max-width: 992px) {
-    .button {
-        font-size: calc(var(--font-size) * 0.8);
-        width: calc(var(--font-size) * 5);
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .button {
-        font-size: var(--font-size);
-        width: calc(var(--font-size) * 6);
-    }
-} */
-

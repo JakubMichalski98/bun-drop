@@ -31,7 +31,6 @@ export function UserProvider({ children }) {
       }
 
     function signInUser(username, password) {
-        console.log(users);
         let userExists = users.some(u => u.username === username && u.password === password);
         
         if (userExists)
@@ -72,10 +71,7 @@ export function UserProvider({ children }) {
     })
     .then(response => response.json())
     .then(data => {
-        // Add the newly registered user to the users array
         users.push(data);
-    
-        // Sign in the newly registered user
         signInUser(username, password);
       });
     }
@@ -87,8 +83,6 @@ export function UserProvider({ children }) {
         const newOrders = user.orders;
 
         newOrders.push(order);
-
-        console.log(newOrders);
 
         const updatedUser = {
             "username": user.username,
@@ -107,7 +101,6 @@ export function UserProvider({ children }) {
         }
 
         function saveUserFavorite(product) {
-            console.log("Save user fav running");
             const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
 
             const newFavorites = user.favorites;
@@ -131,19 +124,13 @@ export function UserProvider({ children }) {
         }
 
         function removeUserFavorite(product) {
-            console.log("Remove user fav running");
             const user = users.find(u => u.id === JSON.parse(localStorage.getItem('user-id')));
 
             const newFavorites = user.favorites;
 
             let favoriteIndex = newFavorites.indexOf(product);
 
-            console.log(newFavorites[favoriteIndex]);
-
             newFavorites.splice(favoriteIndex, 1);
-
-
-            console.log(newFavorites);
 
             const updatedUser = {
                 "username": user.username,
@@ -151,8 +138,6 @@ export function UserProvider({ children }) {
                 "orders": user.orders,
                 "favorites": newFavorites
             }
-
-            console.log(updatedUser);
     
             fetch(`http://localhost:3000/users/${user.id}`, {
                 method: 'PUT',

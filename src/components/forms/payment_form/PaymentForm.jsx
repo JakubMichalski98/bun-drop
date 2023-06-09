@@ -38,7 +38,6 @@ function PaymentForm({navigateToConfirmation}) {
     function handleInputChange(e) {
         setFormValues({...formValues, [e.target.name]: e.target.value})
         setIsSubmitted(true);
-        console.log(formValues);
         }
 
         function handleOptionChange(e) {
@@ -103,7 +102,6 @@ function PaymentForm({navigateToConfirmation}) {
                 }
             }
             
-            console.log(errors);
             return errors;
            
             }
