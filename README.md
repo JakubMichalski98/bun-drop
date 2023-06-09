@@ -22,3 +22,5 @@ Jag bestämde mig även för att använda mig av contexts, nämligen CartContext
 I början av arbetet använde jag mig mycket av inline styling på mina element, men insåg snabbt att detta hade varit väldigt rörigt. Jag har implementerat de flesta komponenterna med ett motsvarande css-modul. Tack vare detta, blir det även enklare att ändra på specifika komponenternas styling.
 
 Planen var även att skapa en ikon för favorite/unfavorite funktionaliteten, men tiden räckte tyvärr inte till. Idéen var även att Navbar skulle vara sticky, så att denna hängde med när användaren scrollade, men detta ledde till lite oönskat beteende för mobil-menyn. Detta är definitivt saker som hade kunnats finslipas, och är någonting jag kommer att förbättra i framtiden. 
+
+Länk till Figma: https://www.figma.com/file/VsaqN1DwID1b6oTHHZRpMK/Bun-Drop?type=design&node-id=0%3A1&t=mctLkSmkJxTZuwDE-1
