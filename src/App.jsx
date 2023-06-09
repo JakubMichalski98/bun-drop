@@ -1,16 +1,15 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
-import Home from './components/pages/Home';
-import Menu from './components/pages/Menu';
-import SignIn from './components/pages/SignIn';
-import Register from './components/pages/Register';
+import Home from './components/pages/home/Home';
+import Menu from './components/pages/menu/Menu';
+import SignIn from './components/pages/sign_in/SignIn';
+import Register from './components/pages/register/Register';
 import Cart from './components/pages/cart/Cart';
-import Payment from './components/pages/Payment'
+import Payment from './components/pages/payment/Payment'
 import { CartProvider } from './context/CartContext';
 import { UserProvider } from './context/UserContext';
-import Confirmation from './components/pages/Confirmation';
+import Confirmation from './components/pages/confirmation/Confirmation';
 
 function App() {
 

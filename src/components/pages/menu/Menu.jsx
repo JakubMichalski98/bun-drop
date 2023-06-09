@@ -1,10 +1,11 @@
 import React from 'react';
-import ProductList from '../product_list/ProductList';
-import Searchbar from '../searchbar/Searchbar';
-import ProductModal from '../ProductModal/ProductModal';
+import ProductList from '../../product_list/ProductList';
+import Searchbar from '../../searchbar/Searchbar';
+import ProductModal from '../../ProductModal/ProductModal';
 import { useEffect, useState } from 'react';
-import { useCart } from '../../context/CartContext';
-import { useUser } from '../../context/UserContext';
+import { useCart } from '../../../context/CartContext';
+import { useUser } from '../../../context/UserContext';
+import Styles from './Menu.module.css'
 
 function Menu() {
 
@@ -60,12 +61,12 @@ function Menu() {
       }
 
     return ( 
-        <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', alignItems: 'center'}}>
-          <h1 style={{textAlign: 'center', fontSize: '60px', fontWeight: 'normal', color: '#414241', marginTop: '40px'}}>Our Products</h1>
+        <div className={Styles.menucontainer}>
+          <h1>Our Products</h1>
           <div>
             <Searchbar inputValue = {searchTerm} onInputChange={handleInputChange}/>
           </div> 
-          <div style={{marginTop: '20px'}}>
+          <div style={{marginTop: '3rem'}}>
             {isSignedIn && user &&
             <div>
               {userFavorites.map((f) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentForm from '../forms/payment_form/PaymentForm';
+import PaymentForm from '../../forms/payment_form/PaymentForm';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ function Payment() {
     return ( 
         <>
         {cart.length < 1 ? (
-            <h1>No products associated with payment. Please add products to your cart first.</h1>
+            <h1 style={{textAlign: 'center', alignSelf: 'center', marginTop: '8rem'}}>No products associated with payment. Please add products to your cart first.</h1>
         ) : (
             <PaymentForm navigateToConfirmation={(validationSuccess) => navigateToConfirmation(validationSuccess)}/>
         )}

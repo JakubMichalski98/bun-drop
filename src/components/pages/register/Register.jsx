@@ -1,8 +1,6 @@
 import React from 'react';
-import Button from '../button/Button';
-import RegisterForm from '../forms/register_form/RegisterForm';
-import { useUser } from '../../context/UserContext';
-import { useState } from 'react';
+import RegisterForm from '../../forms/register_form/RegisterForm';
+import { useUser } from '../../../context/UserContext';
 
 
 function Register() {
@@ -22,9 +20,9 @@ function Register() {
         <>
             {!isSignedIn ? (
                 <RegisterForm handleRegister = {handleRegister}/>
-            ) : (<div>
+            ) : (<div style={{textAlign: 'center', alignSelf: 'center', marginTop: '8rem'}}>
                     <h1>You're signed in</h1>
-                    <p>If you wish to register a new account, sign out first</p>
+                    <p>If you wish to register a new account, sign out first.</p>
                 </div>)}
         </>
      );

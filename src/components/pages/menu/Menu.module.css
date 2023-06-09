@@ -1,0 +1,14 @@
+.menucontainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.menucontainer h1 {
+    text-align: center;
+    font-size: 3.4rem;
+    font-weight: normal;
+    color: #414241;
+    margin-top: 4rem;
+}
