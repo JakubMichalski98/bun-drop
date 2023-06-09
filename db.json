@@ -122,6 +122,94 @@
             },
             "quantity": 1
           }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          },
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          },
+          {
+            "product": {
+              "id": 15,
+              "name": "Positive Energy Tropical Bliss",
+              "price": 2.49,
+              "category": "drinks",
+              "image": "src\\images\\soda-4.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          }
+        ],
+        [
+          {
+            "product": {
+              "id": 5,
+              "name": "The Mushroom Melt",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-6.png"
+            },
+            "quantity": 1
+          },
+          {
+            "product": {
+              "id": 8,
+              "name": "Joe's favorite",
+              "price": 4.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-8.png"
+            },
+            "quantity": 1
+          },
+          {
+            "product": {
+              "id": 15,
+              "name": "Positive Energy Tropical Bliss",
+              "price": 2.49,
+              "category": "drinks",
+              "image": "src\\images\\soda-4.png"
+            },
+            "quantity": 1
+          }
         ]
       ],
       "favorites": [],

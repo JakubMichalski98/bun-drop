@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useUser } from '../../../context/UserContext';
 import Button from '../../button/Button'
 import InputField from '../../input_field/InputField';
@@ -12,6 +12,20 @@ function SignIn() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        const listener = event => {
+          if (event.code === "Enter" || event.code === "NumpadEnter") {
+            event.preventDefault();
+            signInUser(username, password);
+          }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+          document.removeEventListener("keydown", listener);
+        };
+      }, [username, password]);
+
 
     return ( 
         <div className={Styles.signincontainer}>

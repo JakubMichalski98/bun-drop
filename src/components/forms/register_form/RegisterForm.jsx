@@ -12,7 +12,6 @@ function RegisterForm({handleRegister}) {
         comfirmPassword: ''
     })
 
-    
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -20,8 +19,20 @@ function RegisterForm({handleRegister}) {
         if (Object.keys(errorMessages).length === 0 && isSubmitted) {
             handleRegister(true, formValues);
         }
-
     }, [errorMessages])
+
+    useEffect(() => {
+        const listener = event => {
+          if (event.code === "Enter" || event.code === "NumpadEnter") {
+            event.preventDefault();
+            handleFormSubmit();
+          }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+          document.removeEventListener("keydown", listener);
+        };
+      }, [formValues]);
 
     function handleInputChange(e) {
         setFormValues({...formValues, [e.target.name]: e.target.value})

@@ -127,7 +127,7 @@ function PaymentForm({navigateToConfirmation}) {
                 {errorMessages.selectedOption && <div><p>{errorMessages.selectedOption}</p></div>}
 
                 {selectedOption === 'card' &&
-                        <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+                        <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
                             <InputField name='cardNumber' type='number' placeholder='Card Number' value={formValues.cardNumber} onChange={handleInputChange}/>
                             {errorMessages.cardNumber && <p>{errorMessages.cardNumber}</p>}
 
@@ -142,9 +142,9 @@ function PaymentForm({navigateToConfirmation}) {
                     <InputField name='phoneNumber' type='number' placeholder='Phone number' value={formValues.phoneNumber} onChange={handleInputChange}/>
                     {errorMessages.phoneNumber && <p>{errorMessages.phoneNumber}</p>}
                 </div> }
-
-                <Button text={'Complete payment'} onClick={handleFormSubmit}/>
-
+                <div className={Styles.buttoncontainer}>
+                    <Button text={'Complete payment'} onClick={handleFormSubmit}/>
+                </div>
             </form>
             </div>
             
