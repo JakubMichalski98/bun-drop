@@ -20,7 +20,7 @@
 }
 
 .text {
-    max-width: 30%;
+    max-width: 40%;
     margin-bottom: 14rem;
 }
 
@@ -100,7 +100,7 @@
     .text {
         text-align: center;
         margin-bottom: 10%;
-        width: 100%;
+        max-width: 100%;
     }
 
     .mobilebuttoncontainer {

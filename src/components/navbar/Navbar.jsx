@@ -39,6 +39,7 @@ function Navbar() {
     }
 
     function handleSignOutClick() {
+        handleClick();
         signOutUser();
     }
 

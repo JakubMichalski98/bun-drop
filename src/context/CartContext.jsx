@@ -64,7 +64,7 @@ export function CartProvider({ children }) {
       
     });
 
-    return total;
+    return total.toFixed(2);
   }
 
   return (
