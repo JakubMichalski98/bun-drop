@@ -13,7 +13,7 @@ function SignIn() {
     const [password, setPassword] = useState('');
 
     return ( 
-        <div style={{border:'2px red dotted' ,display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{margin: '0',border:'2px red dotted' ,display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <div style={{marginTop: '4rem', marginBottom: '4rem', width: '20rem', height: '24rem', boxShadow:'0px 2px 10px 2px rgba(0, 0, 0, 0.45)', backgroundColor:'white', padding:'2rem'}}>
                 <h1>Sign In</h1>
                 <form style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>

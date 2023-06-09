@@ -14,8 +14,6 @@ import Confirmation from './components/pages/Confirmation';
 
 function App() {
 
-  const [selectedProduct, setSelectedProduct] = useState({});
-
   return (
     <div className='wrapper'>
 
@@ -33,7 +31,7 @@ function App() {
 
                 <Route
                 path='/menu'
-                element={<Menu onAddClick={(product) => setSelectedProduct(product)}/>}
+                element={<Menu/>}
                 />
 
                 <Route
