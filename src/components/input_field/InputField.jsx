@@ -2,12 +2,14 @@ import React from 'react';
 import Styles from './InputField.module.css';
 import { useState } from 'react';
 
-function InputField({type, placeholder, onChange, name}) {
+function InputField({name, type, placeholder, value, onChange}) {
 
     return ( 
-        <>
-        <input name={name} type={type} placeholder={placeholder} onChange={onChange}/>
-        </>
+        <div className={Styles.inputcontainer}>
+            <div className={Styles.inputwrapper}>
+                <input name={name} type={type} placeholder={placeholder} value={value} onChange={onChange}/>
+            </div>
+        </div>
      );
 }
 

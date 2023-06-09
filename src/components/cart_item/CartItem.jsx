@@ -9,7 +9,10 @@ function CartItem({item, handleChange, handleRemoveClick}) {
         <div className={Styles.cartitem}>
             <div className={Styles.leftside}>
                 <img src={item.product.image}/>
-                <h2>{item.product.name}</h2>
+                <div>
+                    <h2>{item.product.name}</h2>
+                    <h3 className={Styles.mobileprice}>{item.product.price * item.quantity}€</h3>
+                </div>
             </div>
             <div className={Styles.rightside}>
                 <div className={Styles.quantityselector}>
@@ -17,9 +20,9 @@ function CartItem({item, handleChange, handleRemoveClick}) {
                 </div>
                 
                 <h3 className={Styles.price}>{item.product.price * item.quantity}€</h3>
+                </div>
                 <div className={Styles.trashiconcontainer}>
                     <BsTrash onClick={handleRemoveClick} className={Styles.trashicon}/>
-                </div>
                 </div>
         </div>
      );

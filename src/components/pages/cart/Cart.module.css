@@ -1,0 +1,27 @@
+.cartcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 52rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    gap: 2rem;
+}
+
+.payment {
+    align-self: flex-end;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .cartcontainer {
+        width: 46rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .payment {
+        align-self: center;
+    }
+}

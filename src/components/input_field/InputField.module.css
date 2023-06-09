@@ -1,4 +1,29 @@
-span {
-    color: red;
-    display: none;
+.inputcontainer input {
+    font-size: 1rem;
+    color: black;
+    padding: 0 4px;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+.inputcontainer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+}
+
+.inputwrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #EEECE9;
+    border-radius: 6px;
+    border: 1px solid #545454;
+    box-shadow: 0px 0px 8px #ddd;
+    height: 2rem;
 }

@@ -2,55 +2,106 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
-    height: 180px;
-    width: 1000px;
+    height: 10rem;
+    width: 52rem;
     box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.45);
 }
 
 .leftside {
     display: flex;
-    flex-direction: row;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 60%;
 }
 
 .rightside {
-    height: 140px;
+    height: 80%;
+    gap: 1rem;
+    align-items: flex-end;
     display: flex;
-    align-self: flex-end;
-    justify-content: center;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
 }
 
 .cartitem img {
-    margin-top: 2rem;
-    margin-left: 2rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 24px;
-    height: 120px;
-    width: 120px;
 }
 
 .quantityselector {
-    margin-top: 2rem;
-    margin-right: 2rem;
+    height: 4.8rem;
+    align-self: flex-end;
 }
 
 .price {
-    font-size: 22px;
-    margin-top: 4.4rem;
+
 }
 
-.cartitem h2 {
-    margin-top: 2rem;
+.mobileprice {
+    display: none;
     margin-left: 2rem;
 }
 
+.cartitem h2 {
+    margin-top: 0;
+    margin-left: 0.5rem;
+}
+
 .trashiconcontainer {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    height: 1.4rem;
     cursor: pointer;
-    margin-bottom: 4rem;
-    height: 26px;
+    user-select: none;
 }
 
 .trashicon {
-    height: 26px;
-    width: 26px;
+    width: 1.4rem;
+    height: 1.4rem;
 }
+
+
+@media only screen and (max-width: 992px) {
+    .cartitem {
+        width: 46rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cartitem {
+        width: 20rem;
+        height: 12rem;
+        background-color: transparent;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.45);
+        border-bottom: 2px solid black;
+    }
+
+    .leftside {
+        margin-left: -1rem;
+        width: 20%;
+    }
+
+    .rightside {
+        align-self: flex-end;
+    }
+
+    .mobileprice {
+        margin-top: -1rem;
+        margin-left: 0.5rem;
+        display: flex;
+    }
+
+    .price {
+        display: none;
+    }
+    
+    .trashiconcontainer {
+        margin-top: 2.2rem;
+    }
+
+    .quantityselector {
+        margin-top: 2rem;
+        margin-left: 4rem;
+    }
+}
+
+

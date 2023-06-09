@@ -6,7 +6,7 @@ import Home from './components/pages/Home';
 import Menu from './components/pages/Menu';
 import SignIn from './components/pages/SignIn';
 import Register from './components/pages/Register';
-import Cart from './components/pages/Cart';
+import Cart from './components/pages/cart/Cart';
 import Payment from './components/pages/Payment'
 import { CartProvider } from './context/CartContext';
 import { UserProvider } from './context/UserContext';

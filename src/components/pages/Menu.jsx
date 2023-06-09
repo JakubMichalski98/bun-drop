@@ -68,7 +68,6 @@ function Menu() {
           <div style={{marginTop: '20px'}}>
             {isSignedIn && user &&
             <div>
-              <h1>yo</h1>
               {userFavorites.map((f) => (
                 <p>{f.name}</p>
               ))}
