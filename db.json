@@ -110,23 +110,22 @@
     {
       "username": "user",
       "password": "password",
-      "orders": [],
+      "orders": [
+        [
+          {
+            "product": {
+              "id": 2,
+              "name": "The Baconator",
+              "price": 5.99,
+              "category": "burgers",
+              "image": "src\\images\\burger-3.png"
+            },
+            "quantity": 1
+          }
+        ]
+      ],
       "favorites": [],
       "id": 1
-    },
-    {
-      "username": "albon",
-      "password": "password",
-      "orders": [],
-      "favorites": [],
-      "id": 2
-    },
-    {
-      "username": "jakub",
-      "password": "jakub1234",
-      "orders": [],
-      "favorites": [],
-      "id": 3
     }
   ]
 }

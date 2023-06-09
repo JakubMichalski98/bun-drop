@@ -69,9 +69,7 @@ function Menu() {
           <div style={{marginTop: '3rem'}}>
             {isSignedIn && user &&
             <div>
-              {userFavorites.map((f) => (
-                <p>{f.name}</p>
-              ))}
+
             </div>}
       
             <ProductList products = {userFavorites} category = {''} searchTerm = {searchTerm} onClick={handleClick}/>

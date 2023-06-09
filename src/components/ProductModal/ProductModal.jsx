@@ -52,7 +52,7 @@ function ProductModal({product, handleXClick, handleAddClick}) {
             <div className={Styles.modalcontainer}>
                 <RxCross2 className={Styles.closeicon} onClick={handleXClick}/>
                     <img src={product.image}/>
-                    <h1>{product.name}</h1>
+                    <h1 className={Styles.productname}>{product.name}</h1>
                     <div className={Styles.quantityselectorcontainer}>
                         <QuantitySelector onChange={handleQuantityChange}/>
                     </div>
@@ -64,9 +64,9 @@ function ProductModal({product, handleXClick, handleAddClick}) {
                         {JSON.parse(localStorage.getItem('is-signed-in')) && 
                         <div>
                              {!productFavorited ? (
-                             <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>FAVORITE</h4>
+                             <h4 onClick={handleFavoriteClick} style={{textAlign: 'center', cursor: 'pointer'}}>FAVORITE</h4>
                         ) : (
-                            <h4 onClick={handleFavoriteClick} style={{textAlign: 'center'}}>UNFAVORITE</h4>
+                            <h4 onClick={handleFavoriteClick} style={{textAlign: 'center', cursor: 'pointer'}}>UNFAVORITE</h4>
                         )}
                         </div> }
                        

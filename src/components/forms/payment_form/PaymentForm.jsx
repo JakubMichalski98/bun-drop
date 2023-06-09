@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from '../../button/Button';
+import InputField from '../../input_field/InputField';
 import { useState, useEffect } from 'react';
 import { useUser } from '../../../context/UserContext';
 import { useCart } from '../../../context/CartContext';
+import Styles from './PaymentForm.module.css';
 
 function PaymentForm({navigateToConfirmation}) {
 
@@ -96,51 +98,58 @@ function PaymentForm({navigateToConfirmation}) {
             }
 
     return ( 
-        <form style={{display: 'flex', flexDirection: 'column', gap: '2rem' ,justifyContent: 'center', alignItems: 'center'}}>
-            <input name='fullName' type='text' placeholder='Full Name' value={formValues.fullName} onChange={handleInputChange}/>
-            {errorMessages.fullName && <p>{errorMessages.fullName}</p>}
+        <div className={Styles.paymentcontainer}>
+            <div className={Styles.payment}>
+                <h1>Payment</h1>
+                <form>
+                <InputField name='fullName' type='text' placeholder='Full Name' value={formValues.fullName} onChange={handleInputChange}/>
+                {errorMessages.fullName && <p>{errorMessages.fullName}</p>}
 
-            <input name='street' type='text' placeholder='Street Address' value={formValues.street} onChange={handleInputChange}/>
-            {errorMessages.street && <p>{errorMessages.street}</p>}
+                <InputField name='street' type='text' placeholder='Street Address' value={formValues.street} onChange={handleInputChange}/>
+                {errorMessages.street && <p>{errorMessages.street}</p>}
 
-            <input name='city' type='text' placeholder='City' value={formValues.city} onChange={handleInputChange}/>
-            {errorMessages.city && <p>{errorMessages.city}</p>}
+                <InputField name='city' type='text' placeholder='City' value={formValues.city} onChange={handleInputChange}/>
+                {errorMessages.city && <p>{errorMessages.city}</p>}
 
-            <input name='zipCode' type='number' placeholder='Zip Code' value={formValues.zipCode} onChange={handleInputChange}/>
-            {errorMessages.zipCode && <p>{errorMessages.zipCode}</p>}
+                <InputField name='zipCode' type='number' placeholder='Zip Code' value={formValues.zipCode} onChange={handleInputChange}/>
+                {errorMessages.zipCode && <p>{errorMessages.zipCode}</p>}
 
-            <div style={{display: 'flex'}}>
-                <label>
-                    <input value='card' checked={selectedOption === 'card'} type='radio' onChange={handleOptionChange}/>
-                    Debit Card
-                </label>
-                <label>
-                    <input value='swish' checked={selectedOption === 'swish'} type='radio' onChange={handleOptionChange}/>
-                    Swish
-                </label>
+                <div style={{display: 'flex'}}>
+                    <label>
+                        <input value='card' checked={selectedOption === 'card'} type='radio' onChange={handleOptionChange}/>
+                        Debit Card
+                    </label>
+                    <label>
+                        <input value='swish' checked={selectedOption === 'swish'} type='radio' onChange={handleOptionChange}/>
+                        Swish
+                    </label>
+                </div>
                 {errorMessages.selectedOption && <div><p>{errorMessages.selectedOption}</p></div>}
+
+                {selectedOption === 'card' &&
+                        <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+                            <InputField name='cardNumber' type='number' placeholder='Card Number' value={formValues.cardNumber} onChange={handleInputChange}/>
+                            {errorMessages.cardNumber && <p>{errorMessages.cardNumber}</p>}
+
+                            <InputField name='expirationDate' type='number' placeholder='Expiration Date' value={formValues.expirationDate} onChange={handleInputChange}/>
+                            {errorMessages.expirationDate && <p>{errorMessages.expirationDate}</p>}
+
+                            <InputField name='cvcCode' type='number' placeholder='CVC' value={formValues.cvcCode} onChange={handleInputChange}/>
+                            {errorMessages.cvcCode && <p>{errorMessages.cvcCode}</p>}
+                        </div>}
+                        {selectedOption === 'swish' &&  <div>
+                    
+                    <InputField name='phoneNumber' type='number' placeholder='Phone number' value={formValues.phoneNumber} onChange={handleInputChange}/>
+                    {errorMessages.phoneNumber && <p>{errorMessages.phoneNumber}</p>}
+                </div> }
+
+                <Button text={'Complete payment'} onClick={handleFormSubmit}/>
+
+            </form>
             </div>
-
-            {selectedOption === 'card' &&
-                    <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
-                        <input name='cardNumber' type='number' placeholder='Card Number' value={formValues.cardNumber} onChange={handleInputChange}/>
-                        {errorMessages.cardNumber && <p>{errorMessages.cardNumber}</p>}
-
-                        <input name='expirationDate' type='number' placeholder='Expiration Date' value={formValues.expirationDate} onChange={handleInputChange}/>
-                        {errorMessages.expirationDate && <p>{errorMessages.expirationDate}</p>}
-
-                        <input name='cvcCode' type='number' placeholder='CVC' value={formValues.cvcCode} onChange={handleInputChange}/>
-                        {errorMessages.cvcCode && <p>{errorMessages.cvcCode}</p>}
-                    </div>}
-                    {selectedOption === 'swish' &&  <div>
-                   
-                   <input name='phoneNumber' type='number' placeholder='Phone number' value={formValues.phoneNumber} onChange={handleInputChange}/>
-                   {errorMessages.phoneNumber && <p>{errorMessages.phoneNumber}</p>}
-               </div> }
-
-            <Button text={'Complete payment'} onClick={handleFormSubmit}/>
-
-        </form>
+            
+        </div>
+       
      );
 }
 
