@@ -7,11 +7,9 @@ function QuantitySelector({onChange, currentQuantity}) {
     const [quantity, setQuantity] = useState(currentQuantity || 1);
 
     function incrementQuantity() {
-        if (quantity < 10)
-        {
-            setQuantity(quantity + 1);
-            onChange(quantity + 1);
-        }
+
+        setQuantity(quantity + 1);
+        onChange(quantity + 1);
 
 
     }

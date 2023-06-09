@@ -18,7 +18,7 @@ function Confirmation() {
                 {order.map((item) => (
                     <div className={Styles.confirmationproduct} key={item.id}>
                         <h4>{item.quantity} x {item.product.name}</h4>
-                        <h5>{item.product.price * item.quantity}</h5>
+                        <h5>{(item.product.price * item.quantity).toFixed(2)}€</h5>
                     </div>
                 ))}
             </div>

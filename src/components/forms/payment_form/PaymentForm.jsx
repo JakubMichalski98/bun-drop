@@ -63,6 +63,9 @@ function PaymentForm({navigateToConfirmation}) {
             if (!values.zipCode) {
             errors.zipCode = 'Zipcode is required';
             }
+            else if (values.zipCode.length != 5) {
+                errors.zipCode = 'Invalid Zip Code (5 digits)';
+            }
 
             if(selectedOption === '') {
                 errors.selectedOption = 'Payment option is required';
@@ -72,18 +75,31 @@ function PaymentForm({navigateToConfirmation}) {
                 if (!values.cardNumber) {
                     errors.cardNumber = 'Card number is required';
                 }
+                else if (values.cardNumber.length < 16 || values.cardNumber.length > 20) {
+                    errors.cardNumber = 'Invalid Card number (16-20 digits)';
+                }
 
                 if (!values.expirationDate) {
-                    errors.expirationDate = 'Card number is required';
+                    errors.expirationDate = 'Expiration date is required';
+                }
+                else if (values.expirationDate.length != 4) {
+                    errors.expirationDate = 'Invalid Expiration date (4 digits)'
                 }
 
                 if (!values.cvcCode) {
                     errors.cvcCode = 'CVC Code is required';
                 }
+                else if (values.cvcCode.length != 3) {
+                    errors.cvcCode = 'Invalid CVC Code (3 digits)';
+                }
             }
             else if (selectedOption === 'swish') {
+
                 if (!values.phoneNumber) {
                     errors.phoneNumber = 'Phone number is required';
+                }
+                else if (values.phoneNumber.length != 10) {
+                    errors.phoneNumber = 'Invalid Phone number (10 digits)';
                 }
             }
             
