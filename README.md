@@ -8,9 +8,9 @@ Node.js and json-server installed.
 
 ### Running the App
 
-`npm run dev`
+(`npm run dev`)
 
 ### Starting the json-server
 
-`npm run json-server`
+(`npm run json-server`)
 
